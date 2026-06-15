@@ -1,0 +1,225 @@
+---
+type: Procedure
+title: Book Specs
+description: Pre-plot research into KDP categories, comps, and genre conventions; produces Plot/Specs.md.
+tier: craft
+tags: [step-1, specs]
+related: ["../2 - Series Plot/2.1 - Template.md"]
+---
+# Book Specs
+
+Research market positioning and genre conventions before story development begins. This procedure produces a default specifications document that feeds the rest of the story development cascade.
+
+## Prerequisites
+
+A high-level premise exists (PITCH.md, a verbal description, or equivalent). This is just the concept — not the plot. No story development work (series plot, book plot, etc.) needs to exist yet.
+
+## Phase 1 — KDP Category Research
+
+Search the KDP store (via web search) to identify the 3 most appropriate browse categories for the book's premise.
+
+For each candidate category, document:
+
+- **Category path** (full browse path, e.g., Kindle Store > Kindle eBooks > Science Fiction & Fantasy > Science Fiction > Hard Science Fiction)
+- **Why it fits** this project's premise
+- **What readers in that category expect** (themes, tone, pacing, content type)
+- **Representative titles** (3–5 current bestsellers or strong performers in the category)
+
+Talk through the candidates with the author and settle on the final 3.
+
+## Phase 2 — Comp Title Analysis
+
+Within the selected categories, identify 3–5 comparable titles. Comps should share similar premise, audience, or market positioning with this project.
+
+For each comp, document:
+
+- **Title and author**
+- **Word count** (approximate)
+- **Chapter structure** (chapter count, average chapter length, scene structure if known)
+- **Prose style characterization** (register, sentence style, POV, tense)
+- **Reader reception patterns** (common praise and complaints from reviews)
+- **Cover style** (imagery, color palette, typography, layout — what the cover signals to browsers)
+- **What specifically makes it comparable** to this project
+
+## Phase 3 — Genre Convention Research
+
+Using the categories and comps from Phases 1–2, research and document conventions for the genre and market position:
+
+- **Total word count range** for the genre/category
+- **Chapter count and length** norms
+- **Scene structure** (scenes per chapter, scene length norms)
+- **POV and tense** norms (what's standard, what's acceptable, what's unusual)
+- **Prose style expectations** (register, sentence complexity, description density)
+- **Pacing patterns** (where hooks land, act structure norms, chapter-end expectations)
+- **Required genre beats and tropes** (what readers expect to see)
+- **Reader expectations and dealbreakers** (what will satisfy or alienate the target audience)
+- **Tone and atmosphere norms** (range of acceptable tones for the category)
+- **Book cover conventions** (dominant imagery, color palettes, typography styles, layout patterns, what signals genre to browsers on KDP)
+
+## Phase 4 — Compile and Save Specifications
+
+Fill the output template (below) with all findings from Phases 1–3. This produces a default specifications document.
+
+Clearly separate "genre norm" from "recommendation for this project" in every section. The author may deliberately deviate from convention — deviations should be informed, not accidental.
+
+Save the result as `Plot/Specs.md` (or update it if it already exists). Mode-driven interaction follows `AGENTS.md` — surface judgment calls and departures from genre norm in collaborative or detailed mode; in autopilot, save and report departures concisely after the fact. Category selection was already settled with the author in Phase 1, so no separate sign-off is required here.
+
+## Completion Gate
+
+`Plot/Specs.md` must exist before the story development cascade can begin. This is checked by the state detection procedure in `AGENTS.md`.
+
+---
+
+## Output Template
+
+Use this template when compiling findings in Phase 4. Fill every section with genre norms and project-specific recommendations.
+
+```markdown
+# Publishing Specs
+
+## Project Identity
+
+- **Title**: [working title]
+- **Genre**: [primary genre]
+- **Subgenre**: [subgenre(s)]
+- **KDP categories**:
+  1. [Full browse path] — [why it fits]
+  2. [Full browse path] — [why it fits]
+  3. [Full browse path] — [why it fits]
+- **Comp titles**:
+  1. [Title] by [Author] — [what's comparable]
+  2. [Title] by [Author] — [what's comparable]
+  3. [Title] by [Author] — [what's comparable]
+- **Target audience**: [description of ideal reader]
+
+## KDP Category Analysis
+
+### Category 1: [Category Name]
+
+- **Browse path**: [full path]
+- **Reader expectations**: [what readers browsing this category are looking for]
+- **Representative bestsellers**: [3–5 titles]
+- **Why this book fits**: [rationale]
+
+### Category 2: [Category Name]
+
+- **Browse path**: [full path]
+- **Reader expectations**: [what readers browsing this category are looking for]
+- **Representative bestsellers**: [3–5 titles]
+- **Why this book fits**: [rationale]
+
+### Category 3: [Category Name]
+
+- **Browse path**: [full path]
+- **Reader expectations**: [what readers browsing this category are looking for]
+- **Representative bestsellers**: [3–5 titles]
+- **Why this book fits**: [rationale]
+
+## Comp Title Analysis
+
+### [Title 1] by [Author]
+
+- **Word count**: [approximate]
+- **Structure**: [chapter count, chapter length, scene structure]
+- **Prose style**: [register, sentence style, POV, tense]
+- **Reception**: [common praise and complaints from reviews]
+- **Cover style**: [imagery, color palette, typography, layout]
+- **What's comparable**: [specific connection to this project]
+
+### [Title 2] by [Author]
+
+[same fields]
+
+### [Title 3] by [Author]
+
+[same fields]
+
+## Structural Conventions
+
+| Element | Genre Norm | Recommendation |
+|---------|-----------|----------------|
+| Word count | [range] | [target for this project] |
+| Chapter count | [range] | [target] |
+| Chapter length | [range] | [target] |
+| Scenes per chapter | [range] | [target] |
+| Scene length | [range] | [target] |
+
+## POV and Tense Conventions
+
+- **Genre norm**: [what's standard in this genre/category]
+- **Recommendation**: [what this project should use and why]
+
+## Pacing Conventions
+
+- **Act structure norms**: [standard act structure for the genre]
+- **Hook placement**: [where hooks are expected — chapter openings, endings, act breaks]
+- **Pacing by quarter**:
+  - First 25%: [expectations]
+  - Second 25%: [expectations]
+  - Third 25%: [expectations]
+  - Final 25%: [expectations]
+- **Chapter-end expectations**: [cliffhangers, reveals, quiet beats — what's normal]
+
+## Prose Style Conventions
+
+- **Register**: [formal, conversational, literary, pulpy, etc.]
+- **Sentence style**: [short and punchy, complex and layered, varied, etc.]
+- **Dialogue norms**: [ratio of dialogue to narration, dialect handling, etc.]
+- **Description density**: [sparse, moderate, lush — genre expectations]
+- **Genre-specific expectations**: [any stylistic conventions particular to this genre]
+
+## Required Genre Elements
+
+- **Tropes/beats readers expect**: [list]
+- **Dealbreakers to avoid**: [things that will alienate genre readers]
+- **Optional elements that perform well**: [not required but well-received]
+
+## Reader Promise Conventions
+
+[What readers of this genre/category are implicitly promised when they pick up the book. What the cover, blurb, and category placement signal about the reading experience.]
+
+## Tone and Atmosphere
+
+- **Genre norms**: [typical tone range for the category]
+- **Range of acceptable tones**: [how far you can push before leaving the genre]
+- **Recommendation for this project**: [target tone and atmosphere]
+
+## Book Cover Conventions
+
+### Genre Norms
+
+- **Dominant imagery**: [what typically appears — characters, objects, scenes, abstract elements]
+- **Color palette**: [colors and color relationships common in the genre]
+- **Typography**: [font styles, title weight, author name placement]
+- **Layout patterns**: [composition norms — centered, asymmetric, full-bleed, etc.]
+- **What signals genre to KDP browsers**: [the visual shorthand that tells a reader "this is [genre]"]
+
+### Comp Cover Analysis
+
+[Brief description of what the comp title covers have in common and where they diverge.]
+
+### Recommendation for This Project
+
+[Specific cover direction based on genre norms, comp analysis, and this project's positioning.]
+
+### Cover Generation Prompt
+
+[A ready-to-use prompt the author can paste into ChatGPT, DALL-E, Midjourney, or similar tools to generate a cover concept consistent with genre conventions and KDP design standards. Include: style direction, imagery, color palette, mood, typography guidance, and KDP thumbnail legibility requirements.]
+
+## Open Questions
+
+[Unresolved decisions, areas where the author should make a deliberate choice, places where convention conflicts with the project's creative goals.]
+```
+
+## Completion Criteria
+
+Before marking this procedure complete, verify:
+
+- [ ] Three KDP categories identified with rationale
+- [ ] At least 3 comp titles analyzed
+- [ ] All structural convention sections populated with genre norms AND project-specific recommendations
+- [ ] Genre norms clearly separated from project recommendations
+- [ ] Author deviations from convention explicitly noted with rationale
+- [ ] Book cover conventions documented with genre norms and project recommendation
+- [ ] Cover generation prompt included
+- [ ] `Plot/Specs.md` saved

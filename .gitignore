@@ -1,0 +1,22 @@
+# macOS system files
+.DS_Store
+**/.DS_Store
+
+# Ulysses metadata
+*.plist
+
+# Claude Code local config and permission allowlist
+.claude/
+
+# Obsidian per-user state (the author's reading-app config, created when they open the folder — never shipped)
+.obsidian/
+
+# Local task tracking
+TODOS.md
+
+# Local design notes
+DESIGN NOTES.md
+
+# Generated OKF graph view (regenerated on demand by .proselon/scripts/visualize_story_graph.py)
+Story Graph.html
+Proselon Framework Graph.html

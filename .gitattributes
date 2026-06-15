@@ -1,0 +1,3 @@
+# Developer-only files excluded from customer release zips (git archive)
+.gitattributes export-ignore
+.proselon/scripts/build_release.sh export-ignore
