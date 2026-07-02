@@ -192,10 +192,12 @@ Mark the scene's Production-table cell as each sub-pass completes — the row is
 |----------|--------|
 | 7.1 | Title research — `7.1 - Title Research.md` |
 | 7.2 | KDP listing — `7.2 - KDP Listing.md` |
-| 7.3 | Cover design — `7.3 - Ebook Cover.md`, `7.3 - Print Cover.md` |
+| 7.3 | Ebook cover — `7.3 - Ebook Cover.md` |
 | 7.4 | Ebook formatting — `7.4 - Ebook Formatting.md` |
+| 7.5 | Print cover — `7.5 - Print Cover.md` |
+| 7.6 | KDP upload and pricing — `7.6 - KDP Upload and Pricing.md` |
 
-**Gate:** Final title recorded in `Plot/Specs.md`, KDP listing saved, cover assets generated, ebook file formatted.
+**Gate:** `Publishing/Book N Title Research.md`, `Publishing/Book N KDP Listing.md`, and `Publishing/Book N Ebook Cover.md` exist; the final title is recorded in `Plot/Specs.md`; and the author confirms the book is live (or in review) on KDP. 7.4–7.6 happen in outside tools, so author confirmation — plus the live product URL recorded in `Publishing/Book N KDP Listing.md` — is their proxy.
 
 ### Manuscript Export
 
@@ -368,6 +370,7 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 - Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns.
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
+- **Voice-drift audit, once per act.** The Line Assessment's 2–3-scene window catches local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run a craft-tier audit in a fresh context: load `Style/Voice Reference.md`, the act's earliest approved scene, and its latest — judge both directly against the Model Passages corpus, not against each other. If the latest has drifted, report it to the author and treat the findings like a Line Assessment for the recent scenes.
 
 ### Model Tiers
 
@@ -536,7 +539,9 @@ Cross-link related concepts inline with angle-bracket links — a character to t
 
 #### Publishing
 
+- Title research → `Publishing/Book N Title Research.md`
 - KDP listing → `Publishing/Book N KDP Listing.md`
+- Ebook cover analysis and prompts → `Publishing/Book N Ebook Cover.md`
 
 #### Manuscripts
 

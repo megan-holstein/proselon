@@ -55,8 +55,9 @@ A Writer↔Assessor loop: the Writer generates (6.1, 6.3), an independent Assess
 - [Title Research](<7 - Publishing/7.1 - Title Research.md>) — *Procedure · craft*
 - [KDP Listing](<7 - Publishing/7.2 - KDP Listing.md>) — *Procedure · craft*
 - [Ebook Cover](<7 - Publishing/7.3 - Ebook Cover.md>) — *Procedure · craft*
-- [Print Cover](<7 - Publishing/7.3 - Print Cover.md>) — *Reference*
 - [Ebook Formatting](<7 - Publishing/7.4 - Ebook Formatting.md>) — *Reference*
+- [Print Cover](<7 - Publishing/7.5 - Print Cover.md>) — *Reference*
+- [KDP Upload and Pricing](<7 - Publishing/7.6 - KDP Upload and Pricing.md>) — *Reference*
 
 ## Cross-Step References
 

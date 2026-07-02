@@ -11,7 +11,7 @@ Proselon's knowledge docs follow the **Open Knowledge Format** (OKF): a body of 
 
 Two bodies of knowledge use this format:
 
-- **The story bible** the author builds — `Worldbuilding/`, `Plot/`, `Research/`, `Style/`.
+- **The story bible** the author builds — `Worldbuilding/`, `Plot/`, `Research/`, `Style/`, `Publishing/`.
 - **The framework itself** — the docs under `.proselon/workflow/`.
 
 `Manuscripts/` and `Fragments/` are **excluded**: manuscript files are export-safe prose only, and fragments are raw scraps. Never add frontmatter to either.
@@ -19,6 +19,8 @@ Two bodies of knowledge use this format:
 ## Frontmatter
 
 Every concept doc opens with a frontmatter block. Only `type` is required.
+
+`description` has two consumers: the graph visualizer shows it as the node's tooltip, and agents use it to decide which file to open during progressive disclosure — write it for someone choosing whether to read the file.
 
 ```yaml
 ---
@@ -42,9 +44,11 @@ related: ["6.5 - Continuity Check.md"]   # see Cross-links
 ---
 ```
 
+`tier` belongs on docs an agent executes — Procedures, Passes, and Rubrics. References and Templates omit it: a reference has no run of its own, and a template runs at the producing step's tier.
+
 ### `type` vocabulary
 
-**Story bible:** `Book Specs`, `Series Plot`, `Themes & Conflict`, `Style Guide`, `Voice Reference`, `Book Plot`, `Story State`, `Chapter Map`, `Chapter Plot`, `Scene Plot`, `KDP Listing`, `Character`, `Location`, `Faction`, `Worldbuilding` (catch-all topic — magic system, history, technology, culture…), `Research`.
+**Story bible:** `Book Specs`, `Series Plot`, `Themes & Conflict`, `Style Guide`, `Voice Reference`, `Book Plot`, `Story State`, `Chapter Map`, `Chapter Plot`, `Scene Plot`, `Title Research`, `KDP Listing`, `Cover Design`, `Character`, `Location`, `Faction`, `Worldbuilding` (catch-all topic — magic system, history, technology, culture…), `Research`.
 
 **Framework:** `Template`, `Rubric`, `Pass`, `Procedure`, `Reference`.
 

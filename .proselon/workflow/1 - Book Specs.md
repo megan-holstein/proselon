@@ -4,7 +4,7 @@ title: Book Specs
 description: Pre-plot research into KDP categories, comps, and genre conventions; produces Plot/Specs.md.
 tier: craft
 tags: [step-1, specs]
-related: ["../2 - Series Plot/2.1 - Template.md"]
+related: ["2 - Series Plot/2.1 - Template.md"]
 ---
 # Book Specs
 

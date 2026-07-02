@@ -2,6 +2,20 @@
 setlocal
 cd /d "%~dp0"
 
+rem Guard: double-clicking the .bat while it's still inside the zip extracts
+rem only the .bat to a temp folder -- the project files won't be there. Catch
+rem that with a clear message instead of launching into an empty folder.
+if not exist "AGENTS.md" (
+    echo This launcher can't find the Proselon project files next to it.
+    echo.
+    echo If you just downloaded Proselon, first EXTRACT the whole zip folder
+    echo ^(right-click the zip and choose "Extract All..."^), then open the
+    echo extracted folder and double-click this launcher there.
+    echo.
+    pause
+    exit /b 1
+)
+
 rem Detect which engines are installed.
 set "HAVE_CLAUDE="
 set "CLAUDE_CMD=claude"
@@ -148,6 +162,6 @@ echo.
 echo Starting Proselon...
 echo If you're asked to log in, choose "Sign in with ChatGPT" and use your normal ChatGPT login.
 echo.
-codex
+call codex
 pause
 exit /b 0

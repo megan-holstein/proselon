@@ -1,5 +1,16 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
+
+# Guard: if the project files aren't here, the launcher was probably moved out
+# of its folder (or run from inside a zip preview). Bail with a clear message.
+if [ ! -e "AGENTS.md" ]; then
+    echo "This launcher can't find the Proselon project files next to it."
+    echo ""
+    echo "Make sure the whole Proselon folder is extracted/copied to your computer"
+    echo "and this launcher is still inside it, then double-click it again."
+    read -p "Press Enter to close..."
+    exit 1
+fi
 
 # Locate the writing engines.
 find_claude() {

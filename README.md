@@ -68,11 +68,17 @@ curl -fsSL https://raw.githubusercontent.com/megan-holstein/proselon/main/.prose
 ```
 
 - **Mac / Linux:** works as-is in the normal Terminal.
-- **Windows:** the same command works **unchanged in Git Bash or WSL** (a Unix shell). It will *not* run in plain Command Prompt or PowerShell, which have no `sh`. If you set up version history you already have Git Bash — right-click inside the project folder, choose **"Git Bash Here,"** and paste the command. Otherwise just ask the agent (above), or re-download the latest folder from the repo and replace your `.proselon/` folder.
+- **Windows:** use the PowerShell updater instead — open PowerShell inside the project folder and run:
+
+  ```
+  powershell -ExecutionPolicy Bypass -File ".proselon\scripts\update.ps1"
+  ```
+
+  (The `curl` one-liner also works unchanged in Git Bash or WSL, if you have those.) Or just ask the agent — see above.
 
 Either way it refreshes Proselon's own files in place — the process docs under `.proselon/`, this README, and the launchers — straight from the public repo. It's independent of your project's own version control, so it works no matter how (or whether) you use Git. **It never touches your writing** (`Plot/`, `Manuscripts/`, `Worldbuilding/`, …) or your Obsidian setup (`.obsidian/`) — only Proselon's files change.
 
-> **For AI agents:** when the author asks to update Proselon (or "update yourself"), run the updater from the project root — `sh .proselon/scripts/update.sh`, or pipe the URL above to `sh`. The script handles everything safely on its own: it refreshes only Proselon's framework files and never touches the author's writing. If the environment has no Unix shell, read `.proselon/scripts/update.sh` and reproduce its steps directly.
+> **For AI agents:** when the author asks to update Proselon (or "update yourself"), run the updater from the project root — `sh .proselon/scripts/update.sh` on Mac/Linux, or `powershell -ExecutionPolicy Bypass -File ".proselon\scripts\update.ps1"` on Windows. Either script handles everything safely on its own: it refreshes only Proselon's framework files and never touches the author's writing. If neither shell is available, read the script and reproduce its steps directly.
 
 ## Getting Started
 
@@ -115,7 +121,7 @@ The stages, roughly in order:
 - **Scene plots** — specific plans for individual scenes
 - **Drafting** — the AI writes prose from approved scene plots, matching your style guide
 - **Editing and proofing** — developmental editing, a voice pass, line editing, continuity checks, copy editing, and proofreading
-- **Publishing** — title selection, KDP listing (blurb, categories, keywords, author bio), cover design, and ebook formatting
+- **Publishing** — title selection, KDP listing (blurb, categories, keywords, author bio), cover design, ebook formatting, and going live on KDP (pricing, royalties, and the upload walkthrough)
 
 You don't have to think about this sequence. The AI tracks where you are and suggests what to do next. If you want to skip ahead or circle back, just say so.
 
