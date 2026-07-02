@@ -14,6 +14,15 @@ Research market positioning and genre conventions before story development begin
 
 A high-level premise exists (PITCH.md, a verbal description, or equivalent). This is just the concept — not the plot. No story development work (series plot, book plot, etc.) needs to exist yet.
 
+## Verification and Provenance
+
+Everything this step produces is market data the author cannot easily fact-check, and it feeds every downstream step — so fabricated data is the most damaging failure available here. Every claim in the output is one of two kinds:
+
+- **Retrieved** — confirmed in search results actually fetched during this session (a live category page, a real listing, a review page). Prefer these; cite what was seen.
+- **Unverified** — from model knowledge, not confirmed live. Tag it `(unverified)` inline. Never present an unverified title, category path, or "current bestseller" as retrieved.
+
+If web search is unavailable, say so, tag all market claims `(unverified)`, and list them under Open Questions for the author to spot-check. A comp title or browse path that cannot be confirmed to exist does not go in the final three.
+
 ## Phase 1 — KDP Category Research
 
 Search the KDP store (via web search) to identify the 3 most appropriate browse categories for the book's premise.
@@ -25,7 +34,7 @@ For each candidate category, document:
 - **What readers in that category expect** (themes, tone, pacing, content type)
 - **Representative titles** (3–5 current bestsellers or strong performers in the category)
 
-Talk through the candidates with the author and settle on the final 3.
+Talk through the candidates with the author and settle on the final 3. This consultation happens in every mode, including autopilot — category selection is a creative decision, never made alone.
 
 ## Phase 2 — Comp Title Analysis
 

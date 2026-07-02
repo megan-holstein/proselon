@@ -48,7 +48,7 @@ Authors have different working styles. Detect the mode and adapt. Mode isn't set
 
 Signals: "just write the book," "take it from here," "do whatever you think is best," hand-wavy answers; results over conversation.
 
-Behavior: Run the cascade with minimal interruption. Fill templates from the premise and your judgment. Stop only for hard blockers — unknowns you can't reasonably guess, contradictions in author material, or structural problems that would cascade. Report concisely after each major artifact.
+Behavior: Run the cascade with minimal interruption. Fill templates from the premise and your judgment. Stop only for hard blockers — unknowns you can't reasonably guess, contradictions in author material, or structural problems that would cascade. One named hard blocker: voice sign-off on the first ~3 drafted scenes (see the Voice Reference's Corpus Maintenance rules) — the book converges toward whatever those scenes sound like, so autopilot never drafts past them without explicit approval of the voice. Report concisely after each major artifact.
 
 ### Collaborative
 
@@ -248,6 +248,10 @@ The **Assessor** runs in a fresh context whose only inputs are the rubric (or pa
   - **Self-correct quietly** when the fix is routine (a missing throughline state, an underspecified beat) and doesn't change a decision the author would weigh in on.
   - **Surface to the author** when the issue is structural, would cascade, or hinges on a creative decision (which character carries a theme, which book a thread resolves in). Present it plainly with your recommendation.
 
+**The loop is bounded.** After two re-assessments of the same artifact, never run a third full round: the Assessor either approves with notes — residual findings become Concerns in the report — or the remaining issues are escalated to the author as creative decisions. Unbounded revise loops burn budget without converging.
+
+**Applying findings.** The Writer that applies findings runs in a fresh craft context, and that context loads: the findings report, the current artifact **from disk**, and — for prose work — `Style/Voice Reference.md` and `Style/Style Guide.md`; for developmental (structural) findings, also the matching scene plot. Change only what the findings name; a findings application is not an invitation to re-edit the rest.
+
 **Exception — mechanical verification.** The continuity, copy, and proofreading passes (6.5–6.7) check against explicit, closed criteria (spelling, grammar, ledger facts). Each runs as a single independent pass that judges *and* fixes — no findings-only round-trip, because a separate generative role buys nothing when the correction is mechanical. Independence still holds: run them in a fresh context on a mechanical-tier model.
 
 A rubric is also your reading list before the next level — confirm the prior level holds up before building on it.
@@ -331,7 +335,7 @@ Absent explicit direction, cascade forward only as far as the next useful level:
 - After chapter plots, scene plots for the current chapter only (Step 5, scene level).
 - Draft only from scene plots (Step 6).
 
-If the author redirects ("plot Book 3 first," "skip to Chapter 12"), follow them — just ensure the artifacts they skip either exist or aren't load-bearing for what they want next.
+If the author redirects ("plot Book 3 first," "skip to Chapter 12"), follow them — just ensure the artifacts they skip either exist or aren't load-bearing for what they want next. Drafting scenes out of reading order has ledger consequences: follow the out-of-order policy in the Story State template (`.proselon/workflow/5 - Plotting/5.3 - Story State Template.md`) and tell the author continuity checking degrades until the gap closes.
 
 ### Chapter Map Scope
 
@@ -363,6 +367,7 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 - The two craft assessments (6.2, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
 - Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns.
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
+- When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
 
 ### Model Tiers
 
