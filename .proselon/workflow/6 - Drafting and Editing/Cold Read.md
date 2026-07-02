@@ -1,7 +1,7 @@
 ---
 type: Pass
 title: Cold Read
-description: Reader-experience assessment of a scene or assembled chapter; reads cold, with no plan documents, and returns findings.
+description: Reader-experience assessment at scene, chapter, and book scope; a persona panel reads cold, with no plan documents, and returns findings.
 tier: craft
 tags: [step-6, editing]
 related: ["6.2 - Developmental Assessment.md", "6.4 - Line Assessment.md"]
@@ -16,12 +16,25 @@ You return a **findings report** — you do not edit the manuscript, and you do 
 
 ## Context to Load
 
-Load ONLY:
+Load ONLY manuscript prose (plus the reading journal at chapter scope, below):
 
-- The **previous one or two manuscript scenes** (in reading order), so you arrive the way a reader arrives
-- The **current scene** (scene scope) or **every scene of the chapter in reading order** (chapter scope)
+- **Scene scope:** the previous one or two manuscript scenes (in reading order), then the current scene — so you arrive the way a reader arrives.
+- **Chapter scope (the serial reader):** the entire manuscript so far, in reading order, ending with the completed chapter — or the reading-journal variant described under Chapter Scope.
+- **Book scope:** the entire manuscript; run per `6.8 - Whole-Book Read.md`.
 
-Deliberately do NOT load the scene plot, chapter plot, style guide, voice reference, character profiles, or any catalog. If a fact isn't in the prose, you don't know it. That ignorance is the instrument — do not let the orchestrating agent "helpfully" brief you on the story.
+Deliberately do NOT load the scene plot, chapter plot, style guide, voice reference, character profiles, or any catalog. If a fact isn't in the prose, you don't know it. That ignorance is the instrument — do not let the orchestrating agent "helpfully" brief you on the story. (Ignorance of the *plans* is the point; ignorance of the *earlier book* never was — a real reader carries every prior chapter.)
+
+## The Panel
+
+Reader experience is a distribution, not a point: one read is one sample of it, and "nothing landed" from one reader is noise where it is a verdict from three. Run every Cold Read as **three Readers in parallel** — separate fresh contexts, each loading only what this doc allows, each carrying a one-line persona assigned by the orchestrating agent:
+
+- **The target reader** — the book's intended audience. Derive the persona line from the Specs' audience fields, but the line itself carries reading disposition only: genre appetite, patience, what they read for. Never story facts.
+- **The impatient reader** — reads fast, skims when bored, puts books down without guilt. Catches slack openings and skimmable middles the polite reader forgives.
+- **The genre-savvy reader** — has read everything adjacent; predicts hard and early; recognizes the move they've seen before.
+
+A persona is one or two sentences of disposition. A persona brief that mentions this story's content destroys the instrument exactly the way a scene plan would.
+
+The orchestrating agent merges testimony **attributed, never averaged** — "the impatient reader stopped at the paragraph beginning…" is the finding — and takes the **majority verdict**. Feeling is load-bearing across the panel: a majority reporting "nothing landed" fails the scene regardless of the other checks.
 
 ## Scene Scope
 
@@ -35,16 +48,27 @@ Read the previous scene(s), then the current scene, start to finish, at reading 
 - **Feeling** — the moment that landed hardest, if any. Name it: the specific line, image, or beat, and what you actually felt. "Nothing landed" is a legitimate and important finding — and a **load-bearing** one: a scene in which no moment landed fails this read even when every other check is clean. Calibrate honestly — the bar is *one honest landed moment*, not fireworks; a quiet connective scene can land on a small true beat, and demanding a showstopper from every scene manufactures ornament, not feeling.
 - **The page-turn** — at the final line, do you want the next scene? What question or pressure is pulling you forward? If you could put the book down here, say so.
 
-## Chapter Scope
+## Chapter Scope — the Serial Reader
 
-Runs once per chapter, after its final scene completes the pipeline (through Proof and Ledger). Scene-by-scene production can leave a chapter that is locally fine and choppy as a whole — nothing else in the pipeline ever reads the scenes in sequence as flow. Load the last scene of the previous chapter plus every scene of this chapter, in reading order, and report on:
+Runs once per chapter, after its final scene completes the pipeline (through Proof and Ledger). Scene-by-scene production can leave a chapter that is locally fine and choppy as a whole — nothing else in the pipeline ever reads the scenes in sequence as flow. And a reader at Chapter 20 arrives carrying nineteen chapters of promises, patterns, and predictions that no two-scene window can simulate — so at this scope you read the **entire manuscript so far**, in reading order, ending with the completed chapter.
+
+**When the accumulated book outgrows what one context can hold attentively**, use the reading journal instead: after each chapter read, the Reader appends to `Plot/Book N/Cold Read Journal.md` what a reader is carrying — live predictions, promises being waited on, moves seen repeated, current momentum. The next chapter's Reader loads the journal, the previous two chapters, and the new chapter. The journal is Reader testimony, never canon: no other pass loads it, and it makes no fact authoritative.
+
+Report on:
 
 - **Flow across seams** — do the scene transitions carry momentum, or does the chapter restart at each scene break? Where did entering a new scene cost you?
 - **Pacing as a whole** — where did the chapter sag? Where did it rush past something you wanted to stay with?
 - **Sameness** — do the scenes feel structurally or emotionally interchangeable (same shape, same beats, same exits)? Say which ones blur together.
 - **The chapter's pull** — does the chapter end somewhere that demands the next one?
+- **Cumulative predictability** — what have you called, and how many chapters early? A reveal predicted at Chapter 8 that lands at Chapter 20 is a central finding, and only this read can make it.
+- **Repeated moves** — "this is the fourth scene ending on a quiet gut-punch": arguments, escapes, reveals, endings that repeat a shape this book has already used.
+- **Promise fatigue** — planted questions you've stopped caring about; threads held open past your patience.
 
 Plus Confusion and Feeling, as above, at chapter scale.
+
+## Book Scope
+
+The finished manuscript gets the same instrument at full scale as the gate into publishing — run per `6.8 - Whole-Book Read.md`, which adds the book-scale checks (climax proportion, the ending, payoff satisfaction) and pairs the panel with a book-scope developmental assessment.
 
 ## How to Report Findings
 

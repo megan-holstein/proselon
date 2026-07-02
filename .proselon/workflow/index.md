@@ -37,20 +37,23 @@ The plot cascade at three scopes; each level is a produce→assess loop (templat
 - [Chapter Map Template](<5 - Plotting/5.4 - Chapter Map.md>) — *Template*
 - [Chapter Plot Template](<5 - Plotting/5.5 - Chapter Plot.md>) — *Template*
 - [Chapter Map Assessment](<5 - Plotting/5.6 - Chapter Map Assessment.md>) — *Rubric · craft*
+- [Synopsis Cold Read](<5 - Plotting/Synopsis Cold Read.md>) — *Pass · craft* · Reader (after 5.2 and 5.6 approval; synopsis read + prediction test)
+- [Plot Stress Test](<5 - Plotting/Plot Stress Test.md>) — *Pass · craft* · Adversaries (after 5.2 approval; scoped rerun after 5.6)
 - [Chapter Plot Assessment](<5 - Plotting/5.7 - Chapter Plot Assessment.md>) — *Rubric · craft*
 - [Scene Plot Template](<5 - Plotting/5.8 - Scene Plot Template.md>) — *Template*
 - [Scene Plot Assessment](<5 - Plotting/5.9 - Scene Plot Assessment.md>) — *Rubric · craft*
 
 ### 6 — Drafting and Editing · per scene
-A Writer↔Assessor loop: the Writer generates (6.1, 6.3), independent Assessors return findings (6.2, Cold Read, 6.4), then mechanical verification (6.5–6.7).
-- [First Draft](<6 - Drafting and Editing/6.1 - First Draft.md>) — *Pass · craft* · Writer
+A Writer↔Assessor loop: the Writer generates (6.1, 6.3), independent Assessors return findings (6.2, Cold Read, 6.4), then verify-and-fix passes (6.5–6.7) and the per-book read (6.8).
+- [First Draft](<6 - Drafting and Editing/6.1 - First Draft.md>) — *Pass · craft* · Writer (2–3 candidates, blind-judged)
 - [Developmental Assessment](<6 - Drafting and Editing/6.2 - Developmental Assessment.md>) — *Pass · craft* · Assessor
-- [Cold Read](<6 - Drafting and Editing/Cold Read.md>) — *Pass · craft* · Reader (scene scope parallel with 6.2; chapter scope when a chapter completes)
-- [Voice Rewrite](<6 - Drafting and Editing/6.3 - Voice Rewrite.md>) — *Pass · craft* · Writer (different model; two candidates until voice sign-off)
-- [Line Assessment](<6 - Drafting and Editing/6.4 - Line Assessment.md>) — *Pass · craft* · Assessor
-- [Continuity Check](<6 - Drafting and Editing/6.5 - Continuity Check.md>) — *Pass · mechanical*
-- [Copy Edit](<6 - Drafting and Editing/6.6 - Copy Edit.md>) — *Pass · mechanical*
-- [Proofread](<6 - Drafting and Editing/6.7 - Proofread.md>) — *Pass · mechanical*
+- [Cold Read](<6 - Drafting and Editing/Cold Read.md>) — *Pass · craft* · Reader panel (scene scope parallel with 6.2; serial read when a chapter completes)
+- [Voice Rewrite](<6 - Drafting and Editing/6.3 - Voice Rewrite.md>) — *Pass · craft* · Writer (different model; multi-candidate, two-axis judged)
+- [Line Assessment](<6 - Drafting and Editing/6.4 - Line Assessment.md>) — *Pass · craft* · Assessor ensemble (filtered)
+- [Continuity Check](<6 - Drafting and Editing/6.5 - Continuity Check.md>) — *Pass · craft* (verify + fix)
+- [Copy Edit](<6 - Drafting and Editing/6.6 - Copy Edit.md>) — *Pass · craft* (verify + fix)
+- [Proofread](<6 - Drafting and Editing/6.7 - Proofread.md>) — *Pass · craft* (verify + fix)
+- [Whole-Book Read](<6 - Drafting and Editing/6.8 - Whole-Book Read.md>) — *Pass · craft* · Reader panel + book Assessor (per book; gates Step 7)
 
 ### 7 — Publishing · per book
 - [Title Research](<7 - Publishing/7.1 - Title Research.md>) — *Procedure · craft*

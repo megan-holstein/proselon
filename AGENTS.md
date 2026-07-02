@@ -139,6 +139,13 @@ The plot cascade at three descending scopes — book, chapter, scene. Each level
 
 The arc of a single book: what happens, how characters change, where it starts and ends. When the book plot saves, also initialize the book's **Story State ledger** (`Plot/Book N/Story State.md`) from the 5.3 template, seeded with starting conditions — the rolling record of in-story state, updated when completing every scene, loaded for every scene plot and continuity check.
 
+**After the book plot clears its panel, attack it before mapping it.** Two findings-only instruments run before 5.4, while the plot is still cheap to change:
+
+- **Synopsis Cold Read** (`5 - Plotting/Synopsis Cold Read.md`) — the plot rendered as a plain synopsis and read by a fresh context holding no canon, plus a prediction test (fresh contexts predict the midpoint, crisis, and climax from the synopsis's first 25% and 50%) that *measures* predictability instead of asserting it. A heavily predicted plan is a Freshness failure and takes the regeneration exit.
+- **Plot Stress Test** (`5 - Plotting/Plot Stress Test.md`) — three parallel adversaries try to break the plot: an antagonist advocate (plays the antagonist at full competence and finds the winning move the plot ignores), a plot-hole hunter (out-of-character convenience, load-bearing coincidence, twists that don't survive a second read), and a kill-your-darlings editor (argues for cutting every subplot; the undefendable ones are flab).
+
+Both re-run scoped against the approved chapter map (the synopsis read on the map's per-chapter synopsis; the attackers against what the map added).
+
 #### Chapter level — Chapter Map & Plot (5.4–5.7)
 
 **Templates:** `5.4 - Chapter Map.md`, `5.5 - Chapter Plot.md`
@@ -176,12 +183,15 @@ Turn a scene plot into finished prose. This is a **Writer↔Assessor loop** (see
 | 6.5 | Continuity Check — mechanical (verify + fix) | `6.5 - Continuity Check.md` |
 | 6.6 | Copy Edit — mechanical | `6.6 - Copy Edit.md` |
 | 6.7 | Proofread — mechanical | `6.7 - Proofread.md` |
+| 6.8 | Whole-Book Read — **Reader panel + book Assessor** (per book, not per scene) | `6.8 - Whole-Book Read.md` |
 
 The order is deliberate: the developmental stage (6.2 plus the Cold Read) gates the Voice Rewrite (6.3), so the generative re-voicing never lands on prose about to be restructured — structure → voice → line → mechanical. The **Cold Read** runs in parallel with 6.2 in its own fresh context with *no* plan documents — it reports the reading experience (attention, confusion, prediction, feeling, the page-turn) rather than checking intentions, catching the failure rubrics can't: a scene that passes every check and is still dull. The craft assessments (6.2, Cold Read, 6.4) are **findings-only**: the Assessor reports, the Writer applies. The three mechanical passes (6.5–6.7) are single independent passes that verify-and-fix against explicit criteria. The Production table's Dev cell covers the developmental stage as a whole — mark it only when both 6.2 and the Cold Read have cleared.
 
-**Gate:** The scene's Production row is marked through Proof and Ledger.
+**Gate (per scene):** The scene's Production row is marked through Proof and Ledger.
 
 Mark the scene's Production-table cell as each sub-pass completes — the row is the durable record of pipeline position, the only way a future session knows which passes ran. After Proof, update `Plot/Book N/Story State.md` with the scene's deltas — time passed, character location/physical/knowledge changes, possessions, location states, ongoing conditions, new facts, threads planted or paid — and mark Ledger — part of finishing a scene, then report (see **Reporting After Scene Work**).
+
+**Gate (per book):** when the final chapter completes (through Proof, Ledger, and its chapter read), run the **Whole-Book Read** (6.8) — a three-persona Reader panel over the entire manuscript plus a book-scope developmental assessment against the book plot, themes, and ledger. Nothing else ever verifies the book works *as a book*. Its report saves to `Plot/Book N/Whole-Book Read.md`; Step 7 does not begin without it.
 
 ### Step 7: Publishing
 
@@ -197,6 +207,8 @@ Mark the scene's Production-table cell as each sub-pass completes — the row is
 | 7.4 | Ebook formatting — `7.4 - Ebook Formatting.md` |
 | 7.5 | Print cover — `7.5 - Print Cover.md` |
 | 7.6 | KDP upload and pricing — `7.6 - KDP Upload and Pricing.md` |
+
+**Entry condition:** `Plot/Book N/Whole-Book Read.md` exists with a clearing verdict (see 6.8) — a book that has never been read as a book doesn't publish.
 
 **Gate:** `Publishing/Book N Title Research.md`, `Publishing/Book N KDP Listing.md`, and `Publishing/Book N Ebook Cover.md` exist; the final title is recorded in `Plot/Specs.md`; and the author confirms the book is live (or in review) on KDP. 7.4–7.6 happen in outside tools, so author confirmation — plus the live product URL recorded in `Publishing/Book N KDP Listing.md` — is their proxy.
 
@@ -319,7 +331,7 @@ To find the next step, check gate files in order for the lowest incomplete one:
 6. `Plot/Book N/Book N Chapter Map.md` and per-chapter `Chapter N Plot.md` for the current book — if any missing, Step 5 (chapter level).
 7. Scene plots (`Plot/Book N/Chapters/Chapter N/S# - Scene Name.md`) for chapters with chapter plots — if any chapter lacks them, Step 5 (scene level) for that chapter.
 
-If all earlier steps are complete for the working scope, consult the Production table: the next action is the first unmarked cell of the lowest unfinished scene — the first draft (6.1), the next assessment or correction pass (6.2–6.7), or its ledger update. If every row is complete, advance to a new scene, chapter, or book.
+If all earlier steps are complete for the working scope, consult the Production table: the next action is the first unmarked cell of the lowest unfinished scene — the first draft (6.1), the next assessment or correction pass (6.2–6.7), or its ledger update. If every row is complete, advance to a new scene, chapter, or book. When every row of a book is complete but `Plot/Book N/Whole-Book Read.md` is missing, the next action is the Whole-Book Read (6.8), not Step 7.
 
 ### Full Project Scan
 
@@ -388,9 +400,10 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 - Run every assessment and pass (6.2–6.7) in a fresh-context subagent loading its doc plus exactly the files that doc's context section ("Before You Start" / "Context to Load") names — nothing more. An independent context catches the drafter's blind spots; it can't be anchored by the drafting session's choices or hold stale superseded versions of the scene.
 - The **Line Assessment (6.4) runs as a filtered ensemble** — 2–3 independent assessors in parallel, findings filtered by agreement (or script corroboration) before the Writer sees them; see the pass doc's Ensemble section. An unfiltered union drives over-revision.
 - The craft assessments (6.2, Cold Read, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
-- The **Cold Read** runs parallel to 6.2 in a context that loads only the previous scene(s) and the current scene — no scene plot, no style files. Brief that subagent with the manuscript files alone; handing it any plan document destroys the instrument.
+- The **Cold Read** runs parallel to 6.2 as a **three-persona panel** (target reader, impatient reader, genre-savvy reader — see the pass doc's Panel section), each Reader in its own context loading only the previous scene(s) and the current scene — no scene plot, no style files. Brief those subagents with the manuscript files and a story-free persona line alone; handing them any plan document (or a persona line containing story facts) destroys the instrument. Merge testimony attributed, take the majority verdict.
 - Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns. For the first ~3 scenes of a book, 6.3 produces **two candidates** and the author picks as part of voice sign-off (see the pass doc's Candidate Selection); after sign-off, **2–3 candidates remain the default for every scene**, judged blind on two axes — corpus fidelity and aliveness — with the more alive candidate preferred when the axes disagree.
-- **Chapter read, once per chapter.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope — the assembled chapter in reading order, plus the previous chapter's last scene. Nothing else ever reads the scenes in sequence as flow; this is where choppy seams, sag, and scene-sameness surface. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author.
+- **Chapter read, once per chapter — the serial reader.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope: the Reader loads the **entire manuscript so far** in reading order (or the reading-journal variant once the book outgrows a context — see the pass doc), because a real reader at Chapter 20 carries nineteen chapters of promises, patterns, and predictions that no two-scene window can simulate. This is where choppy seams, sag, scene-sameness, cumulative predictability, repeated moves, and promise fatigue surface. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author; re-run the chapter read once after its fixes land.
+- **Whole-book read, once per book.** When the final chapter completes, run 6.8 — the Reader panel over the entire manuscript plus the book-scope developmental assessment — before any Step 7 work. Its merged report saves to `Plot/Book N/Whole-Book Read.md` (the Step 7 entry condition).
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
 - **Act audit, once per act.** The Line Assessment's 2–3-scene window catches local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run three checks:
