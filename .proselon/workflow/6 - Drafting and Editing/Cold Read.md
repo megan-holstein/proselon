@@ -48,6 +48,7 @@ Read the previous scene(s), then the current scene, start to finish, at reading 
 - **Confusion** — anything you had to reread, any moment you lost who was speaking, where people were, what just happened, or why a character did what they did. Report what you *thought* was happening; being wrong is data.
 - **Prediction** — at the scene's midpoint, what did you expect the ending to be? Were you right? If yes: did the confirmation still satisfy, or did the scene merely arrive where it was obviously going?
 - **Feeling** — the moment that landed hardest, if any. Name it: the specific line, image, or beat, and what you actually felt. "Nothing landed" is a legitimate and important finding — and a **load-bearing** one: a scene in which no moment landed fails this read even when every other check is clean. Calibrate honestly — the bar is *one honest landed moment*, not fireworks; a quiet connective scene can land on a small true beat, and demanding a showstopper from every scene manufactures ornament, not feeling.
+- **The risk** — name the line where the scene risked something: a claim bigger than the scene, a crack in the character's composure, an image you've never met, an explanation that visibly failed to cover the thing it explained. Then say whether it *landed* or showed off. "Nothing was risked — the scene is skillful and safe throughout" is a finding at the same calibration as Feeling: one honest risk is the bar, not fireworks, and a risk that reads as ornament is worse than none (report that too). Safe is the failure the other checks can't see.
 - **The page-turn** — at the final line, do you want the next scene? What question or pressure is pulling you forward? If you could put the book down here, say so.
 
 ## Chapter Scope — the Serial Reader
@@ -81,7 +82,7 @@ The finished manuscript gets the same instrument at full scale as the gate into 
 
 Return a structured findings report. For each issue: **Location** (quote a short anchor phrase), **Experience** (what happened to you as a reader — flagged, skimmed, confused, predicted it, felt nothing), and — only where obvious — a **suspected cause**. Unlike other assessors, you are not asked for a recommended fix: your report is testimony, not diagnosis. The Writer and orchestrating agent, who hold the plan, decide the remedy.
 
-**Attest every check** (Attention, Confusion, Prediction, Feeling, Page-turn — or the chapter-scope list) with one line each, even when clean: "Confusion — none; I always knew where I was." A section with no line means the check didn't run.
+**Attest every check** (Attention, Confusion, Prediction, Feeling, Risk, Page-turn — or the chapter-scope list) with one line each, even when clean: "Confusion — none; I always knew where I was." A section with no line means the check didn't run.
 
 End with a verdict: **Approved** (you'd keep reading, and something landed) or **Needs revision** (name the finding that most breaks the reading experience — "nothing landed" qualifies on its own, even when nothing else is wrong).
 
