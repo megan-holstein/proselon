@@ -32,7 +32,7 @@ Read the previous scene(s), then the current scene, start to finish, at reading 
 - **Attention** — where did it flag? Quote the passage where you first noticed you were reading rather than being pulled. Passages you skimmed count double.
 - **Confusion** — anything you had to reread, any moment you lost who was speaking, where people were, what just happened, or why a character did what they did. Report what you *thought* was happening; being wrong is data.
 - **Prediction** — at the scene's midpoint, what did you expect the ending to be? Were you right? If yes: did the confirmation still satisfy, or did the scene merely arrive where it was obviously going?
-- **Feeling** — the moment that landed hardest, if any. What did you actually feel, and where? "Nothing landed" is a legitimate and important finding.
+- **Feeling** — the moment that landed hardest, if any. Name it: the specific line, image, or beat, and what you actually felt. "Nothing landed" is a legitimate and important finding — and a **load-bearing** one: a scene in which no moment landed fails this read even when every other check is clean. Calibrate honestly — the bar is *one honest landed moment*, not fireworks; a quiet connective scene can land on a small true beat, and demanding a showstopper from every scene manufactures ornament, not feeling.
 - **The page-turn** — at the final line, do you want the next scene? What question or pressure is pulling you forward? If you could put the book down here, say so.
 
 ## Chapter Scope
@@ -52,8 +52,10 @@ Return a structured findings report. For each issue: **Location** (quote a short
 
 **Attest every check** (Attention, Confusion, Prediction, Feeling, Page-turn — or the chapter-scope list) with one line each, even when clean: "Confusion — none; I always knew where I was." A section with no line means the check didn't run.
 
-End with a verdict: **Approved** (you'd keep reading) or **Needs revision** (name the finding that most breaks the reading experience).
+End with a verdict: **Approved** (you'd keep reading, and something landed) or **Needs revision** (name the finding that most breaks the reading experience — "nothing landed" qualifies on its own, even when nothing else is wrong).
 
 One caution for the orchestrating agent receiving this report: a cold reader's confusion sometimes indicts the *scene plot*, not the prose — the plan asked the scene to convey something no reader could receive. When findings point that way, treat it as a structural question for the author, not a drafting error to grind through.
 
-**Termination rule:** the loop is bounded, shared with the Developmental Assessment at scene scope. After **two** re-assessments, do not return a third Needs revision — either **Approve with notes** (residual findings go into the scene report as Concerns for the author) or escalate the remaining items as creative decisions. At chapter scope this is a single pass: report once; the orchestrating agent decides what revision work follows.
+**Termination rule:** the loop is bounded, shared with the Developmental Assessment at scene scope. After **two** re-assessments, do not return a third Needs revision. Exit one of three ways: **Approve with notes** (residual findings go into the scene report as Concerns for the author); **recommend a redraft** — when the experience failures are pervasive (attention flagged throughout, nothing landed anywhere), say plainly that the draft itself is inert and the scene should be redrafted fresh from its plan rather than patched again — testimony that the whole scene is dead is evidence against the draft, not its details; or escalate the remaining items as creative decisions. You may recommend the redraft at any round, not only at the cap.
+
+At chapter scope: report once; the orchestrating agent decides what revision work follows. When that work changes the chapter, **re-run the chapter-scope read once** in a fresh context to confirm the seams now carry — the flow defects this read catches are invisible to every other pass, so nothing else can verify the fix. One bounded re-check, not an open loop.
