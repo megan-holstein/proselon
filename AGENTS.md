@@ -48,7 +48,7 @@ Authors have different working styles. Detect the mode and adapt. Mode isn't set
 
 Signals: "just write the book," "take it from here," "do whatever you think is best," hand-wavy answers; results over conversation.
 
-Behavior: Run the cascade with minimal interruption. Fill templates from the premise and your judgment. Stop only for hard blockers — unknowns you can't reasonably guess, contradictions in author material, or structural problems that would cascade. One named hard blocker: voice sign-off on the first ~3 drafted scenes (see the Voice Reference's Corpus Maintenance rules) — the book converges toward whatever those scenes sound like, so autopilot never drafts past them without explicit approval of the voice. Report concisely after each major artifact.
+Behavior: Run the cascade with minimal interruption. Fill templates from the premise and your judgment. Stop only for hard blockers — unknowns you can't reasonably guess, contradictions in author material, or structural problems that would cascade. Three named hard blockers run in every mode, autopilot included: **category selection** (Step 1 — a creative decision, never made alone), **Premise Assessment settlement** (Step 1, Phase 5 — a Needs-sharpening verdict is resolved with the author before Step 2), and **voice sign-off** on the first ~3 drafted scenes (see the Voice Reference's Corpus Maintenance rules) — the book converges toward whatever those scenes sound like, so autopilot never drafts past them without explicit approval of the voice. Expect one more author session at book's end: the Whole-Book Read (6.8) routes most of its load-bearing findings to the author, in every mode. Report concisely after each major artifact.
 
 ### Collaborative
 
@@ -83,9 +83,9 @@ The order is *yours*, not a contract for the author. They can hand you material 
 **Reference:** `.proselon/workflow/1 - Book Specs.md`
 **Context to load:** Project premise (`PITCH.md` or verbal description)
 **Output:** `Plot/Specs.md`
-**Gate:** `Plot/Specs.md` exists.
+**Gate:** `Plot/Specs.md` exists with its Premise Assessment section recorded.
 
-Research KDP categories, comp titles, and genre conventions; compile findings into a specs document. Category selection is a creative decision — settle the final 3 with the author, don't pick alone. The step ends with a **Premise Assessment** (a fresh context judges hook strength, differentiation per comp, dealbreaker exposure, and saturation position against the completed Specs) — a Needs-sharpening verdict is settled with the author, in every mode, before Step 2 commits the cascade to the premise.
+Research KDP categories, comp titles, and genre conventions; compile findings into a specs document. Category selection is a creative decision — settle the final 3 with the author, don't pick alone. The step ends with a **Premise Assessment** (a fresh context judges hook strength, differentiation per comp, dealbreaker exposure, and saturation position against the completed Specs) — a Needs-sharpening verdict is settled with the author, in every mode, before Step 2 commits the cascade to the premise. The outcome is recorded in the Specs' Premise Assessment section: a `Plot/Specs.md` without that section is a Step 1 still in Phase 5, not a passed gate.
 
 ### Step 2: Series Plot
 
@@ -99,7 +99,7 @@ Research KDP categories, comp titles, and genre conventions; compile findings in
 
 Establish the whole-project plot: premise, arc, major movements, threads across books. Every later step depends on this canon.
 
-**Between books, the series plot is refreshed, not trusted.** After Book N ships (through its Whole-Book Read) and before Book N+1 plotting begins, run the **Series Refresh** (2.3): reconcile the series plot with the book that actually got written, elevate Book N+1's section to a full Plot Summary, and re-run 2.2 — whose Read-through hook and Middle-book function criteria bite only here. Planning Book N+1 against the pre-Book-1 series document is how book-2 slump happens.
+**Between books, the series plot is refreshed, not trusted.** After Book N completes its Whole-Book Read (publication may still be in flight) and before Book N+1 plotting begins, run the **Series Refresh** (2.3): reconcile the series plot with the book that actually got written, elevate Book N+1's section to a full Plot Summary, and re-run 2.2 — whose Read-through hook and Middle-book function criteria bite only here. The refresh report saves to `Plot/Book N/Series Refresh.md` — the gate artifact state detection checks before allowing Book N+1 plotting. Planning Book N+1 against the pre-Book-1 series document is how book-2 slump happens.
 
 ### Step 3: Themes and Conflict
 
@@ -142,12 +142,12 @@ The plot cascade at three descending scopes — book, chapter, scene. Each level
 
 The arc of a single book: what happens, how characters change, where it starts and ends. When the book plot saves, also initialize the book's **Story State ledger** (`Plot/Book N/Story State.md`) from the 5.3 template, seeded with starting conditions — the rolling record of in-story state, updated when completing every scene, loaded for every scene plot and continuity check.
 
-**After the book plot clears its panel, attack it before mapping it.** Two findings-only instruments run before 5.4, while the plot is still cheap to change:
+**After the book plot clears its panel, attack it before mapping it.** The plot saves on panel approval; two findings-only instruments then run against the saved plot, before 5.4, while it's still cheap to change:
 
 - **Synopsis Cold Read** (`5 - Plotting/Synopsis Cold Read.md`) — the plot rendered as a plain synopsis and read by a fresh context holding no canon, plus a prediction test (fresh contexts predict the midpoint, crisis, and climax from the synopsis's first 25% and 50%) that *measures* predictability instead of asserting it. A heavily predicted plan is a Freshness failure and takes the regeneration exit.
 - **Plot Stress Test** (`5 - Plotting/Plot Stress Test.md`) — three parallel adversaries try to break the plot: an antagonist advocate (plays the antagonist at full competence and finds the winning move the plot ignores), a plot-hole hunter (out-of-character convenience, load-bearing coincidence, twists that don't survive a second read), and a kill-your-darlings editor (argues for cutting every subplot; the undefendable ones are flab).
 
-Both re-run scoped against the approved chapter map (the synopsis read on the map's per-chapter synopsis; the attackers against what the map added).
+Each saves its report — `Plot/Book N/Synopsis Cold Read.md` and `Plot/Book N/Plot Stress Test.md` — and those files are the gate: **5.4 does not begin until both exist with findings resolved.** (A plot the instruments send to regeneration re-enters 5.2; the superseded plot file is overwritten by the winner.) Both instruments re-run scoped against the approved chapter map (the synopsis read on the map's per-chapter synopsis; the attackers against what the map added), appending a Chapter Map Rerun section to their reports — **chapter plots (5.5) wait for those sections**, since a rerun finding can invalidate an act-sized batch.
 
 #### Chapter level — Chapter Map & Plot (5.4–5.7)
 
@@ -167,7 +167,7 @@ First produce the full chapter map (beats allocated to chapters), then generate 
 **Output:** Scene plot files per scene
 **Gate:** All scene plot files for the chapter exist.
 
-Generate scene plots from the chapter plot — usually no interview needed, it has the material. When each saves, add the scene's row to the Production table (mark Plot).
+Generate scene plots from the chapter plot — usually no interview needed, it has the material. **High-stakes scenes** (the book's opening, act climaxes, the book climax, POV-critical reveals, anything the chapter plot flags as pivotal) get two candidate scene plots, judged blind — see 5.8 › High-Stakes Scenes. When each saves, add the scene's row to the Production table (mark Plot).
 
 ### Step 6: Drafting and Editing
 
@@ -248,7 +248,7 @@ For every step, the loop is the same:
 1. Load the step's context (see its **Context to load** entry).
 2. Interview the author or work from what they've given you, matching their mode (see **Working with the Author**).
 3. Fill the matching template — for the series plot, theme slate, book plot, and chapter map, via **Candidate Generation** below rather than a single draft — concise, structured, easy for future-you to read; thematic material in dedicated sections, unresolved decisions under `Open Questions`. Keep the template's OKF frontmatter (fill in `title` and `description`) and link the characters, locations, and factions the document names to their `Worldbuilding/` files inline.
-4. Hand the artifact to an independent **Assessor** to run the matching rubric — never grade your own draft (see **The Writer↔Assessor Loop**). Apply the findings it returns.
+4. Hand the artifact to an independent **Assessor** to run the matching rubric — never grade your own draft (see **The Writer↔Assessor Loop**). For the series plot, book plot, and chapter map, the Assessor is a three-member panel — see **Panel Assessment for Planning Gates** below. Apply the findings it returns.
 5. Save the file at its canonical location.
 
 The save *is* the gate. Save only once the artifact is sound — and, in collaborative or detailed mode, once the author agrees.
@@ -258,9 +258,9 @@ The save *is* the gate. Save only once the artifact is sound — and, in collabo
 The series plot (2.1), theme slate (3.1), book plot (5.1), and chapter map (5.4) are the highest-leverage creative decisions in the project, and generation has high variance: single-shot production takes one sample, and revision-against-findings can only explore that sample's neighborhood. A rubric can reject a mediocre plot; it cannot surface the better plot that was never generated. So for these four artifacts:
 
 1. **Generate 3–5 candidates in independent fresh contexts**, each briefed to be structurally different — force the divergence in the briefs rather than hoping for it (each template's Candidate Generation section names the axes for that artifact; always include one candidate that inverts the genre-default move). Candidates share the same upstream canon and author-confirmed decisions: divergence explores what the author left *open*, never what they settled.
-2. **Judge.** A fresh craft context ranks the candidates against the premise, specs, and upstream canon — and answers one further question per runner-up: *what does this candidate do better than the winner?* In collaborative mode, present the top candidates to the author instead — three skeletons are a better creative conversation than one draft.
-3. **Synthesize.** The Writer takes the winning skeleton and grafts on the named strengths of the runners-up. Graft onto one structure; never average two structures.
-4. The synthesized artifact enters the normal rubric loop as round one.
+2. **Judge — as a panel.** Three fresh craft contexts rank the candidates in parallel, each alone, against the premise, specs, and upstream canon — a single judge picking the skeleton the whole book inherits is exactly the one-sample verdict this protocol exists to kill. Each judge also answers one further question per runner-up: *what does this candidate do better than the winner?* The winner is the majority pick; a three-way split means the orchestrating agent adjudicates on the recorded reasoning. In collaborative mode the judging still runs, then the author sees the top candidates with the panel's reasoning and makes the pick — three skeletons are a better creative conversation than one draft, and the panel's runner-up notes feed synthesis either way.
+3. **Synthesize.** The Writer takes the winning skeleton and grafts on the named strengths of the runners-up (from all three judges' notes). Graft onto one structure; never average two structures.
+4. The synthesized artifact enters the normal rubric loop as round one. Record the outcome — which candidate won, why, and what was grafted — in the plot-work report (see **Reporting After Plot Work**).
 
 In autopilot mode this protocol is mandatory — the candidates substitute for the creative divergence the author interview would otherwise provide. Interview first, candidates second, always.
 
@@ -312,11 +312,11 @@ If the author approves an upstream change but defers downstream propagation, rec
 
 ## State Detection
 
-The file system is the only source of truth: workflow position comes from checking which **gate files exist**, never from a dashboard or frontmatter. Knowledge docs do carry OKF frontmatter, but as *additive metadata* only (see `.proselon/workflow/OKF Conventions.md`) — never the state authority, so don't infer step completion or workflow position from it. (The per-book `Story State.md` ledger tracks *in-story* state plus a Production table recording each scene's workflow position.)
+The file system is the only source of truth: workflow position comes from checking which **gate files exist**, never from a dashboard or frontmatter. Knowledge docs do carry OKF frontmatter, but as *additive metadata* only (see `.proselon/workflow/OKF Conventions.md`) — never the state authority, so don't infer step completion or workflow position from it. (The per-book `Story State.md` ledger tracks *in-story* state plus a Production table recording each scene's workflow position.) Alongside canon gate files, the pipeline's instruments leave **report files** — `Plot/Book N/Synopsis Cold Read.md`, `Plot Stress Test.md`, `Cold Read Journal.md`, `Act Audits.md`, `Whole-Book Read.md`, `Series Refresh.md` — which are testimony and working record, never story canon, but serve state detection the same way: their existence is the only durable proof the instrument ran.
 
 **Production and ledger freshness:** on session start, if `Plot/Book N/Story State.md` exists, check its Production table against the manuscript:
 
-- An incomplete row resumes at the first unmarked pass. Never re-run a marked pass — the Voice Rewrite (6.3) is a generative rewrite; re-running it on voiced prose compounds drift.
+- An incomplete row resumes at the first unmarked pass. Never re-run a marked pass — the Voice Rewrite (6.3) is a generative rewrite; re-running it on voiced prose compounds drift. (Exception: a finished scene re-opened by the chapter read, act audit, or Whole-Book Read has its cells cleared from the re-entered pass rightward and re-runs them in order — see the Story State template's re-opened-scenes rule.)
 - If every pass is marked but Ledger isn't, the scene was finished without its ledger update — do that first.
 - A manuscript file with no row means drafting happened off the books: add the row, inspect its state, continue. Same for a scene plot with no row — add it with Plot marked.
 
@@ -326,15 +326,16 @@ The file system is the only source of truth: workflow position comes from checki
 
 To find the next step, check gate files in order for the lowest incomplete one:
 
-1. `Plot/Specs.md` — if missing, Step 1.
+1. `Plot/Specs.md` — if missing, Step 1. If it exists but has no Premise Assessment section, Step 1 is still in Phase 5: run the Premise Assessment before anything downstream.
 2. `Plot/Series Plot.md` — if missing, Step 2.
 3. `Plot/Themes and Conflict.md` — if missing, Step 3.
 4. `Style/Style Guide.md` and `Style/Voice Reference.md` — if either missing, Step 4.
-5. `Plot/Book N/Book N Plot.md` and `Plot/Book N/Story State.md` for the next unstarted book — if either missing, Step 5. For Book 2 onward, first confirm the Series Refresh (2.3) ran against the shipped previous book — a series plot never reconciled with the previous book's reality makes the next book plot premature. If the book plot exists but the ledger is missing, initialize it from the 5.3 template: seed from starting conditions, backfill from completed scenes.
-6. `Plot/Book N/Book N Chapter Map.md` and per-chapter `Chapter N Plot.md` for the current book — if any missing, Step 5 (chapter level).
-7. Scene plots (`Plot/Book N/Chapters/Chapter N/S# - Scene Name.md`) for chapters with chapter plots — if any chapter lacks them, Step 5 (scene level) for that chapter.
+5. `Plot/Book N/Book N Plot.md` and `Plot/Book N/Story State.md` for the next unstarted book — if either missing, Step 5. For Book 2 onward, first check `Plot/Book N-1/Series Refresh.md` exists — a series plot never reconciled with the previous book's reality makes the next book plot premature; if it's missing, the Series Refresh (2.3) is the next action. If the book plot exists but the ledger is missing, initialize it from the 5.3 template: seed from starting conditions, backfill from completed scenes.
+6. `Plot/Book N/Synopsis Cold Read.md` and `Plot/Book N/Plot Stress Test.md` for the current book — if the book plot exists but either report is missing, the plot is approved but un-attacked: run the missing instrument before 5.4. A report whose newest section predates the current plot file (each section names the plot version it ran against) is stale — treat it as missing.
+7. `Plot/Book N/Book N Chapter Map.md` and per-chapter `Chapter N Plot.md` for the current book — if the map is missing, Step 5 (chapter level). If the map exists but either instrument report lacks its Chapter Map Rerun section, run the scoped reruns before chapter plots.
+8. Scene plots (`Plot/Book N/Chapters/Chapter N/S# - Scene Name.md`) for chapters with chapter plots — if any chapter lacks them, Step 5 (scene level) for that chapter.
 
-If all earlier steps are complete for the working scope, consult the Production table: the next action is the first unmarked cell of the lowest unfinished scene — the first draft (6.1), the next assessment or correction pass (6.2–6.7), or its ledger update. If every row is complete, advance to a new scene, chapter, or book. When every row of a book is complete but `Plot/Book N/Whole-Book Read.md` is missing, the next action is the Whole-Book Read (6.8), not Step 7.
+If all earlier steps are complete for the working scope, consult the Production table: the next action is the first unmarked cell of the lowest unfinished scene — the first draft (6.1), the next assessment or correction pass (6.2–6.7), or its ledger update. Before advancing past a completed chapter, check `Plot/Book N/Cold Read Journal.md`'s Chapter Log: a completed chapter with no log line hasn't had its chapter read — that read comes before any new scene. Consult `Plot/Book N/Act Audits.md` the same way when ~10 scenes have completed since its last entry. If every row is complete, advance to a new scene, chapter, or book. When every row of a book is complete and every chapter is logged as read but `Plot/Book N/Whole-Book Read.md` is missing, the next action is the Whole-Book Read (6.8), not Step 7.
 
 ### Full Project Scan
 
@@ -405,11 +406,11 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 - The craft assessments (6.2, Cold Read, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
 - The **Cold Read** runs parallel to 6.2 as a **three-persona panel** (target reader, impatient reader, genre-savvy reader — see the pass doc's Panel section), each Reader in its own context loading only the previous scene(s) and the current scene — no scene plot, no style files. Brief those subagents with the manuscript files and a story-free persona line alone; handing them any plan document (or a persona line containing story facts) destroys the instrument. Merge testimony attributed, take the majority verdict.
 - Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns. For the first ~3 scenes of a book, 6.3 produces **two candidates** and the author picks as part of voice sign-off (see the pass doc's Candidate Selection); after sign-off, **2–3 candidates remain the default for every scene**, judged blind on two axes — corpus fidelity and aliveness — with the more alive candidate preferred when the axes disagree.
-- **Chapter read, once per chapter — the serial reader.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope: the Reader loads the **entire manuscript so far** in reading order (or the reading-journal variant once the book outgrows a context — see the pass doc), because a real reader at Chapter 20 carries nineteen chapters of promises, patterns, and predictions that no two-scene window can simulate. This is where choppy seams, sag, scene-sameness, cumulative predictability, repeated moves, and promise fatigue surface. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author; re-run the chapter read once after its fixes land.
+- **Chapter read, once per chapter — the serial reader.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope — as the same **three-persona panel**, each Reader loading the **entire manuscript so far** in reading order (each with its own section of the reading journal once the book outgrows a context — see the pass doc), because a real reader at Chapter 20 carries nineteen chapters of promises, patterns, and predictions that no two-scene window can simulate. This is where choppy seams, sag, scene-sameness, cumulative predictability, repeated moves, and promise fatigue surface. The merged verdict is logged in `Plot/Book N/Cold Read Journal.md`'s Chapter Log — the durable record state detection checks; a completed chapter with no log line is unread, and the read is the next action. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author; re-run the chapter read once after its fixes land.
 - **Whole-book read, once per book.** When the final chapter completes, run 6.8 — the Reader panel over the entire manuscript plus the book-scope developmental assessment — before any Step 7 work. Its merged report saves to `Plot/Book N/Whole-Book Read.md` (the Step 7 entry condition).
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
-- **Act audit, once per act.** Per-scene windows catch local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run five checks:
+- **Act audit, once per act.** Per-scene windows catch local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes since the last recorded audit), run five checks, then append a dated entry — act or scene range covered, findings summary, what was routed where — to `Plot/Book N/Act Audits.md`, the record that makes the "~10 scenes since" trigger computable across sessions:
   - **Voice drift** (craft tier, fresh context): load `Style/Voice Reference.md`, the act's earliest approved scene, and its latest — judge both directly against the Model Passages corpus, not against each other. If the latest has drifted, report it to the author and treat the findings like a Line Assessment for the recent scenes.
   - **Dialogue differentiation** (craft tier, fresh context): extract each major character's dialogue lines across the act (mechanical tier can do the extraction), strip the tags and beats, and have a fresh judge — loading only the Voice Reference's Other Character Voices section and the anonymized line sets — say who's speaking in each set. Characters a blind judge can't tell apart have converged on the narrator's rhythm: report it, and treat the findings like a Line Assessment for the offending characters' recent scenes.
   - **Cross-scene tics** (the script counts; a craft-tier context judges): run `python3 .proselon/scripts/prose_stats.py` across all the act's manuscript scenes at once. Repeated phrases, over-frequent words, and density creep that no per-scene pass can see show up in the aggregate. Recurring offenders go into the Style Guide's Red Flag List (the project tic sheet).
@@ -431,7 +432,7 @@ After saving content, don't reproduce it in conversation. Report the file path, 
 
 ### Reporting After Plot Work
 
-Report: files created or changed (with paths), what level was planned, which decisions remain open, and the next step.
+Report: files created or changed (with paths), what level was planned, which decisions remain open, and the next step. When candidate generation ran, include two or three lines on the outcome: which candidate won, the panel's core reason, and what was grafted from the runners-up.
 
 ### Reporting After Scene Work
 

@@ -14,15 +14,15 @@ Tiers: **craft** = strongest available model; **mechanical** = fast, inexpensive
 ## Steps
 
 ### 1 — Book Specs · once per project
-- [Book Specs](<1 - Book Specs.md>) — *Procedure · craft*. Pre-plot KDP/genre research → `Plot/Specs.md`.
+- [Book Specs](<1 - Book Specs.md>) — *Procedure · craft*. Pre-plot KDP/genre research → `Plot/Specs.md`; ends with the Premise Assessment gate (verdict recorded in the Specs).
 
 ### 2 — Series Plot · once per project, refreshed between books
-- [Series Plot Template](<2 - Series Plot/2.1 - Template.md>) — *Template*
-- [Series Plot Assessment](<2 - Series Plot/2.2 - Assessment.md>) — *Rubric · craft*
-- [Series Refresh](<2 - Series Plot/2.3 - Series Refresh.md>) — *Procedure · craft* (after each book ships, before the next book's plot)
+- [Series Plot Template](<2 - Series Plot/2.1 - Template.md>) — *Template* (candidates)
+- [Series Plot Assessment](<2 - Series Plot/2.2 - Assessment.md>) — *Rubric · craft* · three-Assessor panel
+- [Series Refresh](<2 - Series Plot/2.3 - Series Refresh.md>) — *Procedure · craft* (after each book's Whole-Book Read, before the next book's plot; report → `Plot/Book N/Series Refresh.md`)
 
 ### 3 — Themes and Conflict · once per project
-- [Themes and Conflict Template](<3 - Themes and Conflict/3.1 - Template.md>) — *Template*
+- [Themes and Conflict Template](<3 - Themes and Conflict/3.1 - Template.md>) — *Template* (candidates)
 - [Themes and Conflict Assessment](<3 - Themes and Conflict/3.2 - Assessment.md>) — *Rubric · craft*
 
 ### 4 — Style and Voice · once per project
@@ -32,23 +32,23 @@ Tiers: **craft** = strongest available model; **mechanical** = fast, inexpensive
 
 ### 5 — Plotting · per book → chapter → scene
 The plot cascade at three scopes; each level is a produce→assess loop (template = Writer, rubric = Assessor).
-- [Book Plot Template](<5 - Plotting/5.1 - Book Plot Template.md>) — *Template*
-- [Book Plot Assessment](<5 - Plotting/5.2 - Book Plot Assessment.md>) — *Rubric · craft*
+- [Book Plot Template](<5 - Plotting/5.1 - Book Plot Template.md>) — *Template* (candidates)
+- [Book Plot Assessment](<5 - Plotting/5.2 - Book Plot Assessment.md>) — *Rubric · craft* · three-Assessor panel
 - [Story State Ledger Template](<5 - Plotting/5.3 - Story State Template.md>) — *Template*
-- [Chapter Map Template](<5 - Plotting/5.4 - Chapter Map.md>) — *Template*
+- [Chapter Map Template](<5 - Plotting/5.4 - Chapter Map.md>) — *Template* (candidates)
 - [Chapter Plot Template](<5 - Plotting/5.5 - Chapter Plot.md>) — *Template*
-- [Chapter Map Assessment](<5 - Plotting/5.6 - Chapter Map Assessment.md>) — *Rubric · craft*
-- [Synopsis Cold Read](<5 - Plotting/Synopsis Cold Read.md>) — *Pass · craft* · Reader (after 5.2 and 5.6 approval; synopsis read + prediction test)
-- [Plot Stress Test](<5 - Plotting/Plot Stress Test.md>) — *Pass · craft* · Adversaries (after 5.2 approval; scoped rerun after 5.6)
+- [Chapter Map Assessment](<5 - Plotting/5.6 - Chapter Map Assessment.md>) — *Rubric · craft* · three-Assessor panel
+- [Synopsis Cold Read](<5 - Plotting/Synopsis Cold Read.md>) — *Pass · craft* · Reader (after 5.2 and 5.6 approval, and at series level during the Series Refresh; report → `Plot/Book N/Synopsis Cold Read.md`, gates 5.4/5.5)
+- [Plot Stress Test](<5 - Plotting/Plot Stress Test.md>) — *Pass · craft* · Adversaries (after 5.2 approval; scoped rerun after 5.6; report → `Plot/Book N/Plot Stress Test.md`, gates 5.4/5.5)
 - [Chapter Plot Assessment](<5 - Plotting/5.7 - Chapter Plot Assessment.md>) — *Rubric · craft*
-- [Scene Plot Template](<5 - Plotting/5.8 - Scene Plot Template.md>) — *Template*
+- [Scene Plot Template](<5 - Plotting/5.8 - Scene Plot Template.md>) — *Template* (two candidates for high-stakes scenes)
 - [Scene Plot Assessment](<5 - Plotting/5.9 - Scene Plot Assessment.md>) — *Rubric · craft*
 
 ### 6 — Drafting and Editing · per scene
 A Writer↔Assessor loop: the Writer generates (6.1, 6.3), independent Assessors return findings (6.2, Cold Read, 6.4), then verify-and-fix passes (6.5–6.7) and the per-book read (6.8).
 - [First Draft](<6 - Drafting and Editing/6.1 - First Draft.md>) — *Pass · craft* · Writer (2–3 candidates, blind-judged)
 - [Developmental Assessment](<6 - Drafting and Editing/6.2 - Developmental Assessment.md>) — *Pass · craft* · Assessor
-- [Cold Read](<6 - Drafting and Editing/Cold Read.md>) — *Pass · craft* · Reader panel (scene scope parallel with 6.2; serial read when a chapter completes)
+- [Cold Read](<6 - Drafting and Editing/Cold Read.md>) — *Pass · craft* · Reader panel (scene scope parallel with 6.2; serial read when a chapter completes, logged in `Plot/Book N/Cold Read Journal.md`)
 - [Voice Rewrite](<6 - Drafting and Editing/6.3 - Voice Rewrite.md>) — *Pass · craft* · Writer (different model; multi-candidate, two-axis judged)
 - [Line Assessment](<6 - Drafting and Editing/6.4 - Line Assessment.md>) — *Pass · craft* · Assessor ensemble (filtered)
 - [Continuity Check](<6 - Drafting and Editing/6.5 - Continuity Check.md>) — *Pass · craft* (verify + fix)

@@ -34,6 +34,8 @@ Reader experience is a distribution, not a point: one read is one sample of it, 
 
 A persona is one or two sentences of disposition. A persona brief that mentions this story's content destroys the instrument exactly the way a scene plan would.
 
+The panel applies at every scope — scene, chapter, and book. At chapter scope each persona is a separate serial reader with its own journal section (see Chapter Scope); their testimonies never mix until the merge.
+
 The orchestrating agent merges testimony **attributed, never averaged** — "the impatient reader stopped at the paragraph beginning…" is the finding — and takes the **majority verdict**. Feeling is load-bearing across the panel: a majority reporting "nothing landed" fails the scene regardless of the other checks.
 
 ## Scene Scope
@@ -52,7 +54,12 @@ Read the previous scene(s), then the current scene, start to finish, at reading 
 
 Runs once per chapter, after its final scene completes the pipeline (through Proof and Ledger). Scene-by-scene production can leave a chapter that is locally fine and choppy as a whole — nothing else in the pipeline ever reads the scenes in sequence as flow. And a reader at Chapter 20 arrives carrying nineteen chapters of promises, patterns, and predictions that no two-scene window can simulate — so at this scope you read the **entire manuscript so far**, in reading order, ending with the completed chapter.
 
-**When the accumulated book outgrows what one context can hold attentively**, use the reading journal instead: after each chapter read, the Reader appends to `Plot/Book N/Cold Read Journal.md` what a reader is carrying — live predictions, promises being waited on, moves seen repeated, current momentum. The next chapter's Reader loads the journal, the previous two chapters, and the new chapter. The journal is Reader testimony, never canon: no other pass loads it, and it makes no fact authoritative.
+**The reading journal — `Plot/Book N/Cold Read Journal.md` — is maintained from the first chapter read**, created then if it doesn't exist. It has two jobs. It is each Reader's memory once the book outgrows a context, and its Chapter Log is the durable record that the chapter read happened — without it, state detection cannot tell a read chapter from a skipped one. Structure:
+
+- **Chapter Log** (top of file) — one line per chapter read, written by the orchestrating agent after the merge: chapter, majority verdict, the single most load-bearing finding. The one bounded re-check after fixes (below) appends an amended line rather than editing the original. State detection treats a completed chapter with no log line as *unread*: the chapter read is the next action, before any new scene.
+- **One section per persona** — after each chapter read, each Reader appends what it is carrying: live predictions, promises being waited on, moves seen repeated, current momentum. A Reader loads **only its own section**, never another persona's — shared testimony would collapse the panel into one reader with three names.
+
+While the whole manuscript still fits attentively in one context, each Reader reads it all in reading order (and still writes its journal entry — that's the memory the panel will need later). **When the accumulated book outgrows what one context can hold attentively**, each Reader loads its own journal section, the previous two chapters, and the new chapter instead. The journal is Reader testimony, never canon: no story pass loads it, it makes no fact authoritative, and the orchestrating agent reads only the Chapter Log (for state detection and routing), never the persona sections.
 
 Report on:
 
@@ -82,4 +89,4 @@ One caution for the orchestrating agent receiving this report: a cold reader's c
 
 **Termination rule:** the loop is bounded, shared with the Developmental Assessment at scene scope. After **two** re-assessments, do not return a third Needs revision. Exit one of three ways: **Approve with notes** (residual findings go into the scene report as Concerns for the author); **recommend a redraft** — when the experience failures are pervasive (attention flagged throughout, nothing landed anywhere), say plainly that the draft itself is inert and the scene should be redrafted fresh from its plan rather than patched again — testimony that the whole scene is dead is evidence against the draft, not its details; or escalate the remaining items as creative decisions. You may recommend the redraft at any round, not only at the cap.
 
-At chapter scope: report once; the orchestrating agent decides what revision work follows. When that work changes the chapter, **re-run the chapter-scope read once** in a fresh context to confirm the seams now carry — the flow defects this read catches are invisible to every other pass, so nothing else can verify the fix. One bounded re-check, not an open loop.
+At chapter scope: report once, and record the merged verdict as a Chapter Log line in the reading journal; the orchestrating agent decides what revision work follows. When that work changes the chapter, **re-run the chapter-scope read once** in fresh contexts to confirm the seams now carry — the flow defects this read catches are invisible to every other pass, so nothing else can verify the fix — and append the amended verdict to the log. One bounded re-check, not an open loop.

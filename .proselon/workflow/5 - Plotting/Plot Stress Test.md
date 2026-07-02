@@ -19,6 +19,10 @@ Rubric assessors work *through a checklist*: they confirm what's present. Advers
 
 The attack is bounded: one full attack, findings routed, then one verification pass on the revised plot confirming the named holes are closed. Not an open loop.
 
+## The Report File
+
+The full attack saves its merged report (each attacker's findings, how each was resolved — fixed, accepted with the author, or regeneration) to **`Plot/Book N/Plot Stress Test.md`**; the scoped rerun appends a **Chapter Map Rerun** section to the same file. The file's existence is how state detection knows the attack ran: **5.4 does not begin until the report exists with its findings resolved, and chapter plots (5.5) do not begin until the rerun section does.** A plot that takes the regeneration exit re-enters 5.2 as a new artifact and, on approval, gets a fresh attack and a fresh report section. Each section opens by naming the plot version it attacked (date, and the commit in a git project) — a report whose newest section predates the current plot file is stale, and state detection treats the plot as un-attacked. The report is working record, never canon — no plotting or drafting pass loads it as story truth.
+
 ## The Three Attackers
 
 Run all three in parallel, in separate fresh contexts. None sees the others' reports.

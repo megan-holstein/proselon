@@ -63,9 +63,11 @@ The premise is the one creative object everything downstream inherits, and until
 
 Verdict: **Strong** (proceed to Step 2) or **Needs sharpening** — never "replace"; the premise is the author's. On Needs sharpening, present the findings with two or three concrete sharpening directions (a stronger angle of attack, a differentiating element, a repositioned category) and settle it with the author before Step 2 commits a hundred thousand words to it. Like category selection, this consultation happens in every mode, including autopilot.
 
+**Record the outcome** in the Premise Assessment section of `Plot/Specs.md` (see the Output Template): verdict, date, and — when it was Needs sharpening — one line on how the premise was sharpened and that the author settled it. A Specs file without this section is a Step 1 that isn't finished: state detection treats it as still in Phase 5, whatever else the file contains.
+
 ## Completion Gate
 
-`Plot/Specs.md` must exist before the story development cascade can begin. This is checked by the state detection procedure in `AGENTS.md`.
+`Plot/Specs.md` must exist **with its Premise Assessment section recorded** before the story development cascade can begin — a Specs file without it is a Step 1 still in Phase 5. This is checked by the state detection procedure in `AGENTS.md`.
 
 ---
 
@@ -193,6 +195,11 @@ Use this template when compiling findings in Phase 4. Fill every section with ge
 
 [A ready-to-use prompt the author can paste into ChatGPT, DALL-E, Midjourney, or similar tools to generate a cover concept consistent with genre conventions and KDP design standards. Include: style direction, imagery, color palette, mood, typography guidance, and KDP thumbnail legibility requirements.]
 
+## Premise Assessment
+
+- **Verdict**: [Strong / Needs sharpening — resolved] — [date]
+- **Resolution**: [for a clean Strong: "as pitched." Otherwise one line: how the premise was sharpened and that the author settled it.]
+
 ## Open Questions
 
 [Unresolved decisions, areas where the author should make a deliberate choice, places where convention conflicts with the project's creative goals.]
@@ -205,7 +212,7 @@ Before marking this procedure complete, verify:
 - [ ] Three KDP categories identified with rationale
 - [ ] At least 3 comp titles analyzed
 - [ ] Comp dealbreakers mined from 1–2-star reviews and recorded in Required Genre Elements
-- [ ] Premise Assessment run and its verdict settled with the author
+- [ ] Premise Assessment run, its verdict settled with the author, and the outcome recorded in the Premise Assessment section of `Plot/Specs.md`
 - [ ] All structural convention sections populated with genre norms AND project-specific recommendations
 - [ ] Genre norms clearly separated from project recommendations
 - [ ] Series promises listed as explicit, payable commitments
