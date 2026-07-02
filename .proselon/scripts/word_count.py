@@ -21,6 +21,18 @@ def natural_sort_key(path):
     ]
 
 
+def chapter_heading(dir_name):
+    """Heading for a chapter folder.
+
+    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
+    "Chapter 3" -> "Chapter 3".
+    """
+    if " - " in dir_name:
+        return dir_name.split(" - ", 1)[1].strip()
+    num = re.search(r"\d+", dir_name)
+    return f"Chapter {num.group()}" if num else dir_name
+
+
 def strip_front_matter(text):
     """Remove YAML front matter if present."""
     if text.startswith("---"):
@@ -56,8 +68,7 @@ def word_count(book_folder):
     chapter_counts = []
 
     for chapter_dir in chapter_dirs:
-        chapter_num = re.search(r"\d+", chapter_dir.name)
-        chapter_label = f"Chapter {chapter_num.group()}" if chapter_num else chapter_dir.name
+        chapter_label = chapter_heading(chapter_dir.name)
 
         scene_files = sorted(
             [f for f in chapter_dir.iterdir() if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],

@@ -54,6 +54,18 @@ def natural_sort_key(path):
     ]
 
 
+def chapter_heading(dir_name):
+    """Heading for a chapter folder.
+
+    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
+    "Chapter 3" -> "Chapter 3".
+    """
+    if " - " in dir_name:
+        return dir_name.split(" - ", 1)[1].strip()
+    num = re.search(r"\d+", dir_name)
+    return f"Chapter {num.group()}" if num else dir_name
+
+
 def render_inline(text):
     """Convert markdown ***bold-italic***, **bold**, *italic* to HTML."""
     text = escape(text)
@@ -124,10 +136,7 @@ def export(book_folder, book_title, author=None):
     total_scenes = 0
 
     for chapter_dir in chapter_dirs:
-        chapter_num = re.search(r"\d+", chapter_dir.name)
-        chapter_heading = (
-            f"Chapter {chapter_num.group()}" if chapter_num else chapter_dir.name
-        )
+        heading = chapter_heading(chapter_dir.name)
 
         scene_files = sorted(
             [f for f in chapter_dir.iterdir()
@@ -135,7 +144,7 @@ def export(book_folder, book_title, author=None):
             key=natural_sort_key,
         )
 
-        body_parts = [f"<h1>{escape(chapter_heading)}</h1>"]
+        body_parts = [f"<h1>{escape(heading)}</h1>"]
         for i, scene_file in enumerate(scene_files):
             content = scene_file.read_text(encoding="utf-8").strip()
             body_parts.append(render_scene_html(content))
@@ -147,13 +156,13 @@ def export(book_folder, book_title, author=None):
 
         slug = re.sub(r"[^a-z0-9]+", "-", chapter_dir.name.lower()).strip("-")
         chapter = epub.EpubHtml(
-            title=chapter_heading,
+            title=heading,
             file_name=f"{slug}.xhtml",
             lang=LANGUAGE,
         )
         chapter.content = (
             '<html xmlns="http://www.w3.org/1999/xhtml">'
-            f"<head><title>{escape(chapter_heading)}</title>"
+            f"<head><title>{escape(heading)}</title>"
             '<link rel="stylesheet" type="text/css" href="style/main.css"/>'
             "</head><body>" + "\n".join(body_parts) + "</body></html>"
         )

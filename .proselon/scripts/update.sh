@@ -19,8 +19,18 @@ TARBALL="https://github.com/$REPO_OWNER/$REPO_NAME/archive/refs/heads/$BRANCH.ta
 TARGET="$(pwd)"
 
 # Guard: make sure we're in a Proselon project, not a random directory.
-if [ ! -e "$TARGET/AGENTS.md" ] && [ ! -d "$TARGET/.proselon" ] && \
-   [ ! -d "$TARGET/.workflow" ] && [ ! -d "$TARGET/Plot" ]; then
+# AGENTS.md alone is not enough — plenty of unrelated repos have one, and this
+# script overwrites AGENTS.md/README.md/LICENSE.md. Require a Proselon-specific
+# marker before touching anything.
+is_proselon_project() {
+    [ -e "$TARGET/.proselon/VERSION" ] && return 0
+    [ -d "$TARGET/.proselon/workflow" ] && return 0
+    [ -d "$TARGET/.workflow" ] && return 0  # pre-release flat layout
+    grep -qi "proselon" "$TARGET/AGENTS.md" 2>/dev/null && return 0
+    { [ -d "$TARGET/Plot" ] && [ -d "$TARGET/Manuscripts" ]; } && return 0
+    return 1
+}
+if ! is_proselon_project; then
     echo "This doesn't look like a Proselon project folder." >&2
     echo "cd into your project (the folder with AGENTS.md) and run this again." >&2
     exit 1
@@ -54,9 +64,13 @@ if [ -d "$TARGET/.workflow" ] || [ -d "$TARGET/.scripts" ]; then
 fi
 
 # Refresh the framework. .proselon/ is pure framework, so it's safe to replace
-# wholesale; nothing else in your project is touched.
+# wholesale; nothing else in your project is touched. Copy first, then swap, so
+# a failed copy (disk full, permissions) can't leave the project without a
+# framework.
+rm -rf "$TARGET/.proselon.new"
+cp -R "$SRC/.proselon" "$TARGET/.proselon.new"
 rm -rf "$TARGET/.proselon"
-cp -R "$SRC/.proselon" "$TARGET/.proselon"
+mv "$TARGET/.proselon.new" "$TARGET/.proselon"
 
 # Root framework files (Proselon-owned, not your writing).
 for f in "AGENTS.md" "README.md" "LICENSE.md" \

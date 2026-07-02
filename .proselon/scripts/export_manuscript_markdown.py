@@ -22,6 +22,18 @@ def natural_sort_key(path):
     ]
 
 
+def chapter_heading(dir_name):
+    """Heading for a chapter folder.
+
+    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
+    "Chapter 3" -> "Chapter 3".
+    """
+    if " - " in dir_name:
+        return dir_name.split(" - ", 1)[1].strip()
+    num = re.search(r"\d+", dir_name)
+    return f"Chapter {num.group()}" if num else dir_name
+
+
 def export(book_folder, book_title):
     project_root = Path(__file__).resolve().parent.parent.parent
     manuscripts_dir = project_root / "Manuscripts" / book_folder
@@ -43,9 +55,7 @@ def export(book_folder, book_title):
     total_scenes = 0
 
     for chapter_dir in chapter_dirs:
-        chapter_num = re.search(r"\d+", chapter_dir.name)
-        chapter_heading = f"Chapter {chapter_num.group()}" if chapter_num else chapter_dir.name
-        lines.append(f"\n## {chapter_heading}\n\n")
+        lines.append(f"\n## {chapter_heading(chapter_dir.name)}\n\n")
 
         scene_files = sorted(
             [f for f in chapter_dir.iterdir() if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],

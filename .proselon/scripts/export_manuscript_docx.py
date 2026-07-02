@@ -50,6 +50,18 @@ def natural_sort_key(path):
     ]
 
 
+def chapter_heading(dir_name):
+    """Heading for a chapter folder.
+
+    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
+    "Chapter 3" -> "Chapter 3".
+    """
+    if " - " in dir_name:
+        return dir_name.split(" - ", 1)[1].strip()
+    num = re.search(r"\d+", dir_name)
+    return f"Chapter {num.group()}" if num else dir_name
+
+
 def add_formatted_text(paragraph, text):
     """Parse markdown inline formatting (**bold**, *italic*) into Word runs."""
     pattern = re.compile(r"(\*{3}(.+?)\*{3}|\*{2}(.+?)\*{2}|\*(.+?)\*)")
@@ -181,18 +193,13 @@ def export(book_folder, book_title, author=None):
     total_scenes = 0
 
     for chapter_dir in chapter_dirs:
-        chapter_num = re.search(r"\d+", chapter_dir.name)
-        chapter_heading = (
-            "Chapter " + chapter_num.group() if chapter_num else chapter_dir.name
-        )
-
         scene_files = sorted(
             [f for f in chapter_dir.iterdir()
              if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],
             key=natural_sort_key,
         )
 
-        h = doc.add_heading(chapter_heading, level=1)
+        h = doc.add_heading(chapter_heading(chapter_dir.name), level=1)
         h.alignment = WD_ALIGN_PARAGRAPH.CENTER
         for run in h.runs:
             run.font.name = FONT_NAME
