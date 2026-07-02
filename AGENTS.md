@@ -170,13 +170,14 @@ Turn a scene plot into finished prose. This is a **Writer↔Assessor loop** (see
 |----------|------|-----|
 | 6.1 | First Draft — **Writer** (generate) | `6.1 - First Draft.md` |
 | 6.2 | Developmental Assessment — **Assessor** → Writer revises | `6.2 - Developmental Assessment.md` |
+| — | Cold Read — **Reader** (parallel with 6.2; no plan documents) | `Cold Read.md` |
 | 6.3 | Voice Rewrite — **Writer** (generate; different model) | `6.3 - Voice Rewrite.md` |
 | 6.4 | Line Assessment — **Assessor** → Writer revises | `6.4 - Line Assessment.md` |
 | 6.5 | Continuity Check — mechanical (verify + fix) | `6.5 - Continuity Check.md` |
 | 6.6 | Copy Edit — mechanical | `6.6 - Copy Edit.md` |
 | 6.7 | Proofread — mechanical | `6.7 - Proofread.md` |
 
-The order is deliberate: the Developmental Assessment (6.2) gates the Voice Rewrite (6.3), so the generative re-voicing never lands on prose about to be restructured — structure → voice → line → mechanical. The two craft assessments (6.2, 6.4) are **findings-only**: the Assessor reports, the Writer applies. The three mechanical passes (6.5–6.7) are single independent passes that verify-and-fix against explicit criteria.
+The order is deliberate: the developmental stage (6.2 plus the Cold Read) gates the Voice Rewrite (6.3), so the generative re-voicing never lands on prose about to be restructured — structure → voice → line → mechanical. The **Cold Read** runs in parallel with 6.2 in its own fresh context with *no* plan documents — it reports the reading experience (attention, confusion, prediction, feeling, the page-turn) rather than checking intentions, catching the failure rubrics can't: a scene that passes every check and is still dull. The craft assessments (6.2, Cold Read, 6.4) are **findings-only**: the Assessor reports, the Writer applies. The three mechanical passes (6.5–6.7) are single independent passes that verify-and-fix against explicit criteria. The Production table's Dev cell covers the developmental stage as a whole — mark it only when both 6.2 and the Cold Read have cleared.
 
 **Gate:** The scene's Production row is marked through Proof and Ledger.
 
@@ -252,7 +253,7 @@ The **Assessor** runs in a fresh context whose only inputs are the rubric (or pa
 
 **The loop is bounded.** After two re-assessments of the same artifact, never run a third full round: the Assessor either approves with notes — residual findings become Concerns in the report — or the remaining issues are escalated to the author as creative decisions. Unbounded revise loops burn budget without converging.
 
-**Applying findings.** The Writer that applies findings runs in a fresh craft context, and that context loads: the findings report, the current artifact **from disk**, and — for prose work — `Style/Voice Reference.md` and `Style/Style Guide.md`; for developmental (structural) findings, also the matching scene plot. Change only what the findings name; a findings application is not an invitation to re-edit the rest.
+**Applying findings.** The Writer that applies findings runs in a fresh craft context, and that context loads: the findings report, the current artifact **from disk**, and — for prose work — `Style/Voice Reference.md` and `Style/Style Guide.md`; for developmental (structural) findings, also the matching scene plot. Change only what the findings name; a findings application is not an invitation to re-edit the rest. For prose findings, suggested rewrites in the report illustrate the *direction* — the Writer re-renders every fix in the book's voice from the corpus, never transplanting the assessor's wording, so findings-report prose doesn't thread its register through the manuscript.
 
 **Exception — mechanical verification.** The continuity, copy, and proofreading passes (6.5–6.7) check against explicit, closed criteria (spelling, grammar, ledger facts). Each runs as a single independent pass that judges *and* fixes — no findings-only round-trip, because a separate generative role buys nothing when the correction is mechanical. Independence still holds: run them in a fresh context on a mechanical-tier model.
 
@@ -366,19 +367,22 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 
 - Draft (6.1) in one session for momentum and continuity.
 - Run every assessment and pass (6.2–6.7) in a fresh-context subagent loading its doc plus exactly the files that doc's context section ("Before You Start" / "Context to Load") names — nothing more. An independent context catches the drafter's blind spots; it can't be anchored by the drafting session's choices or hold stale superseded versions of the scene.
-- The two craft assessments (6.2, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
-- Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns.
+- The craft assessments (6.2, Cold Read, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
+- The **Cold Read** runs parallel to 6.2 in a context that loads only the previous scene(s) and the current scene — no scene plot, no style files. Brief that subagent with the manuscript files alone; handing it any plan document destroys the instrument.
+- Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns. For the first ~3 scenes of a book, 6.3 produces **two candidates** and the author picks as part of voice sign-off (see the pass doc's Candidate Selection); after sign-off, single-rewrite is the default unless the author opts into two-candidate mode.
+- **Chapter read, once per chapter.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope — the assembled chapter in reading order, plus the previous chapter's last scene. Nothing else ever reads the scenes in sequence as flow; this is where choppy seams, sag, and scene-sameness surface. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author.
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
-- **Act audit, once per act.** The Line Assessment's 2–3-scene window catches local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run two checks:
+- **Act audit, once per act.** The Line Assessment's 2–3-scene window catches local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run three checks:
   - **Voice drift** (craft tier, fresh context): load `Style/Voice Reference.md`, the act's earliest approved scene, and its latest — judge both directly against the Model Passages corpus, not against each other. If the latest has drifted, report it to the author and treat the findings like a Line Assessment for the recent scenes.
+  - **Dialogue differentiation** (craft tier, fresh context): extract each major character's dialogue lines across the act (mechanical tier can do the extraction), strip the tags and beats, and have a fresh judge — loading only the Voice Reference's Other Character Voices section and the anonymized line sets — say who's speaking in each set. Characters a blind judge can't tell apart have converged on the narrator's rhythm: report it, and treat the findings like a Line Assessment for the offending characters' recent scenes.
   - **Cross-scene tics** (mechanical tier): run `python3 .proselon/scripts/prose_stats.py` across all the act's manuscript scenes at once. Repeated phrases, over-frequent words, and density creep that no per-scene pass can see show up in the aggregate. Recurring offenders go into the Style Guide's Red Flag List (the project tic sheet).
 
 ### Model Tiers
 
 Use cheaper models where adequate — defined by capability tier, never vendor or model name, so the workflow stays portable.
 
-- **Craft tier — the strongest available model.** Anything that generates or judges prose and story: first draft (6.1), developmental assessment (6.2), voice rewrite (6.3), line assessment (6.4), all plotting and interview steps, and the Assessor running any rubric for creative artifacts.
+- **Craft tier — the strongest available model.** Anything that generates or judges prose and story: first draft (6.1), developmental assessment (6.2), the Cold Read at both scopes, voice rewrite (6.3) and its candidate judge, line assessment (6.4), all plotting and interview steps, and the Assessor running any rubric for creative artifacts.
 - **Mechanical tier — a fast, inexpensive model.** Pattern-matching and bookkeeping against explicit criteria: continuity check (6.5), copy edit (6.6), proofread (6.7), ledger updates, word counts, exports, state detection scans.
 
 When a pass mixes judgment and mechanics (the line assessment does), it stays craft tier. When in doubt, craft tier — a wrong mechanical assignment costs quality, a wrong craft assignment only money. Each `.proselon/workflow/` doc declares its tier near the top. Without per-task model selection, the declarations are inert and everything runs on the session model.

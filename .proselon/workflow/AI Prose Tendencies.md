@@ -17,6 +17,8 @@ What a drafter must avoid while generating. Each item is expanded — with full 
 
 ### Density Thresholds
 
+These ceilings are **defaults calibrated to contemporary commercial fiction, and the project Style Guide may override any of them** where the voice demands it — a deliberately em-dash-heavy narrator, a simile-rich figurative voice. Record every override in the Style Guide (with its rationale, like any subversion); Writers and Assessors then judge against the overridden value, not the table.
+
 | Signal | Ceiling | Clustering |
 |--------|---------|------------|
 | Em dashes | 1 per 6–7 paragraphs, or 1 per 500 words — whichever is stricter for the scene | Two in one paragraph, or em dashes in three consecutive paragraphs, is overuse even under the per-scene total |
@@ -49,6 +51,8 @@ What a drafter must avoid while generating. Each item is expanded — with full 
 ### Over-Frequent Words
 
 These appear with detectable frequency in AI-drafted prose. Not banned, but clustering (3+ in a scene) signals the prose needs roughening. Clustering means most instances should be replaced with more specific or unexpected alternatives.
+
+**These lists decay.** The named words and phrases in this catalog are examples of a phenomenon, not a permanent registry: tics differ between models and change as models change, and prose steered hard off a named list converges on the next-most-probable alternatives — which become the new tics the list doesn't name. The ground truth is measured repetition in *this project's* prose: `prose_stats.py` frequency output and the Style Guide's Red Flag List (the project tic sheet). Trust those over this list when they disagree, and refresh these lists when the drafting models change.
 
 - **Verbs**: measured, pulsed, shifted, flickered, tilted, hummed, dragged, settled, landed, clenched, delve, unlock
 - **Adjectives/adverbs**: quietly, carefully, gently, familiar, dangerous, palpable, visceral, almost
@@ -148,7 +152,7 @@ Preserve colons only for genuine setup-payoff constructions where no other punct
 
 ### Red-Flag Phrases
 
-Every occurrence of these patterns is an automatic flag for rewrite — no judgment call needed:
+Every occurrence of these patterns is an automatic flag for rewrite — no judgment call needed. `.proselon/scripts/prose_stats.py` detects the mechanically matchable patterns on this list and reports each hit; verify its hits in context, then scan for the rest yourself — the paraphrasable patterns no regex can catch:
 
 - "her eyes were warm"
 - "he felt [emotion]" — red flag as primary rendering. Permitted only in **negation** ("Not relief — the situation was too sharp for relief") or **retrospective labeling** ("Later she'd call it grief. At the time it was just the pressure behind her eyes"). The physical rendering must come first or replace the label entirely.

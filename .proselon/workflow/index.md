@@ -42,10 +42,11 @@ The plot cascade at three scopes; each level is a produce→assess loop (templat
 - [Scene Plot Assessment](<5 - Plotting/5.9 - Scene Plot Assessment.md>) — *Rubric · craft*
 
 ### 6 — Drafting and Editing · per scene
-A Writer↔Assessor loop: the Writer generates (6.1, 6.3), an independent Assessor returns findings (6.2, 6.4), then mechanical verification (6.5–6.7).
+A Writer↔Assessor loop: the Writer generates (6.1, 6.3), independent Assessors return findings (6.2, Cold Read, 6.4), then mechanical verification (6.5–6.7).
 - [First Draft](<6 - Drafting and Editing/6.1 - First Draft.md>) — *Pass · craft* · Writer
 - [Developmental Assessment](<6 - Drafting and Editing/6.2 - Developmental Assessment.md>) — *Pass · craft* · Assessor
-- [Voice Rewrite](<6 - Drafting and Editing/6.3 - Voice Rewrite.md>) — *Pass · craft* · Writer (different model)
+- [Cold Read](<6 - Drafting and Editing/Cold Read.md>) — *Pass · craft* · Reader (scene scope parallel with 6.2; chapter scope when a chapter completes)
+- [Voice Rewrite](<6 - Drafting and Editing/6.3 - Voice Rewrite.md>) — *Pass · craft* · Writer (different model; two candidates until voice sign-off)
 - [Line Assessment](<6 - Drafting and Editing/6.4 - Line Assessment.md>) — *Pass · craft* · Assessor
 - [Continuity Check](<6 - Drafting and Editing/6.5 - Continuity Check.md>) — *Pass · mechanical*
 - [Copy Edit](<6 - Drafting and Editing/6.6 - Copy Edit.md>) — *Pass · mechanical*

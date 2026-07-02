@@ -16,6 +16,11 @@ Reports:
   - simile proxies ("as if", "like a")
   - most-repeated content words, and bigrams/trigrams appearing 3+ times
   - paragraph-length distribution and one-sentence-paragraph count
+  - sentence-length distribution and variance (low variance reads metronomic)
+  - repeated paragraph openings and participial (-ing) openers
+  - filter and hedge words (felt, noticed, seemed, began to, ...)
+  - hits on the mechanically detectable Red-Flag Phrases from the
+    AI Prose Tendencies catalog (verify each hit in context)
 
 These back the Line Assessment (6.4) density checks. Stdlib only — no installs.
 """
@@ -53,6 +58,53 @@ WORD_RE = re.compile(r"[a-z']+")
 SENTENCE_END_RE = re.compile(r"[.!?…]+[\"'”’)\]]*(?=\s|$)")
 SCENE_BREAK_RE = re.compile(r"[-*_](?:\s*[-*_]){2,}$")
 
+# Words ending in -ing that aren't participles when opening a paragraph.
+ING_FALSE_POSITIVES = {
+    "nothing", "something", "anything", "everything",
+    "morning", "evening", "during", "spring", "king", "ring", "thing", "wing",
+}
+
+# Filter and hedge words: perception verbs that stand between the reader and
+# the event, and hedges that soften prose into mush. Counts only — the
+# assessor judges which instances are the dramatic action vs. a filter.
+FILTER_PATTERNS = [
+    ('"felt"', r"\bfelt\b"),
+    ('"noticed"', r"\bnoticed\b"),
+    ('"realized"', r"\brealized\b"),
+    ('"saw"', r"\bsaw\b"),
+    ('"heard"', r"\bheard\b"),
+    ('"watched"', r"\bwatched\b"),
+    ('"knew"', r"\bknew\b"),
+    ('"seemed"', r"\bseemed\b"),
+    ('"began to" / "started to"', r"\b(?:began|started) to\b"),
+    ('"could see/hear/feel"', r"\bcould (?:see|hear|feel)\b"),
+]
+
+# The mechanically matchable patterns from the AI Prose Tendencies catalog's
+# Red-Flag Phrases list. Every hit is reported; the assessor verifies each in
+# context (e.g. "the weight of the crate" is literal, not a flag).
+RED_FLAG_PATTERNS = [
+    ('"couldn\'t help but"', r"couldn['’]t help but"),
+    ('"let out a breath"', r"\blet out a breath\b"),
+    ('"a mixture of"', r"\ba mixture of\b"),
+    ('adverb after "said"/"says"', r"\bsa(?:id|ys) \w+ly\b"),
+    ('"the weight of"', r"\bthe weight of\b"),
+    ('"eyes were warm"', r"\beyes were warm\b"),
+    ('"looked very much like"', r"\blooked very much like\b"),
+    ('"etched across/into/on"', r"\betched (?:across|into|on)\b"),
+    ('"flooded/surged/washed through"', r"\b(?:flooded|surged|washed) through\b"),
+    ('"something in ... shifted/softened/changed"',
+     r"\bsomething in \w+(?: \w+)? (?:shifted|softened|changed)\b"),
+    ('"that was worse"', r"\bthat was worse\b"),
+    ('"that was enough" and kin',
+     r"\bthat was enough\b|\bit was a start\b|\bit would have to do\b"
+     r"|\bthat was something, at least\b"),
+    ('"one [noun] at a time"', r"\bone \w+ at a time\b"),
+    ('"unguarded in a way"', r"\bunguarded in a way\b"),
+    ('"heart ached"', r"\bheart ached\b"),
+    ('"A pause." / "A beat."', r"(?m)(?:^|[.!?\"”'] )A (?:pause|beat)\."),
+]
+
 
 def paragraphs_of(text):
     """Prose paragraphs: one per non-blank line, minus headings and breaks."""
@@ -78,6 +130,21 @@ def tokens_of(text):
 def sentence_count(paragraph):
     """Approximate sentence count from terminal punctuation."""
     return max(1, len(SENTENCE_END_RE.findall(paragraph)))
+
+
+def sentences_of(paragraph):
+    """Split a paragraph into sentences on terminal punctuation."""
+    sentences = []
+    start = 0
+    for m in SENTENCE_END_RE.finditer(paragraph):
+        chunk = paragraph[start:m.end()].strip()
+        if chunk:
+            sentences.append(chunk)
+        start = m.end()
+    tail = paragraph[start:].strip()
+    if tail:
+        sentences.append(tail)
+    return sentences
 
 
 def ngram_counts(paragraphs, n):
@@ -147,6 +214,29 @@ def main(paths):
     para_lengths = [count_words(p) for p in paragraphs]
     one_sentence = sum(1 for p in paragraphs if sentence_count(p) == 1)
 
+    # --- sentence lengths ---------------------------------------------------
+    sentence_lengths = [count_words(s) for p in paragraphs for s in sentences_of(p)]
+
+    # --- paragraph openings -------------------------------------------------
+    opening_counts = Counter()
+    ing_openers = 0
+    for p in paragraphs:
+        toks = tokens_of(p)
+        if not toks:
+            continue
+        opening_counts[" ".join(toks[:2])] += 1
+        if toks[0].endswith("ing") and toks[0] not in ING_FALSE_POSITIVES:
+            ing_openers += 1
+    repeated_openings = [(o, c) for o, c in opening_counts.most_common(10) if c >= 3]
+
+    # --- filter words and red-flag phrases -----------------------------------
+    filter_hits = [(label, len(re.findall(pat, prose, re.IGNORECASE)))
+                   for label, pat in FILTER_PATTERNS]
+    filter_hits = [(label, n) for label, n in filter_hits if n]
+    red_flag_hits = [(label, len(re.findall(pat, prose, re.IGNORECASE)))
+                     for label, pat in RED_FLAG_PATTERNS]
+    red_flag_hits = [(label, n) for label, n in red_flag_hits if n]
+
     # --- report -------------------------------------------------------------
     file_note = f"{len(paths)} file{'s' if len(paths) != 1 else ''}"
     print(f"Prose statistics ({file_note})")
@@ -193,6 +283,41 @@ def main(paths):
     print(stat_line("Longest", max(para_lengths)))
     print(stat_line("One-sentence paragraphs", one_sentence,
                     f"({one_sentence * 100 // n_paras}% of paragraphs)"))
+    print()
+    print("Sentence lengths (words)")
+    print(stat_line("Sentences", len(sentence_lengths)))
+    print(stat_line("Shortest", min(sentence_lengths)))
+    print(stat_line("Median", float(statistics.median(sentence_lengths))))
+    print(stat_line("Longest", max(sentence_lengths)))
+    mean_len = statistics.fmean(sentence_lengths)
+    print(stat_line("Mean", mean_len))
+    if len(sentence_lengths) >= 2:
+        stdev = statistics.stdev(sentence_lengths)
+        cv = stdev / mean_len if mean_len else 0.0
+        print(stat_line("Stdev", stdev,
+                        f"(stdev/mean {cv:.2f} — low variance reads metronomic)"))
+    print()
+    print("Paragraph openings")
+    print(stat_line("Participial (-ing) openers", ing_openers))
+    if repeated_openings:
+        for o, c in repeated_openings:
+            print(stat_line(f'"{o} ..."', c))
+    else:
+        print("  (no opening pair used 3+ times)")
+    print()
+    print("Filter and hedge words (judge each in context)")
+    if filter_hits:
+        for label, n in filter_hits:
+            print(stat_line(label, n))
+    else:
+        print("  (none)")
+    print()
+    print("Red-flag phrase hits (every hit needs a look; see the catalog)")
+    if red_flag_hits:
+        for label, n in red_flag_hits:
+            print(stat_line(label, n))
+    else:
+        print("  (none)")
 
 
 if __name__ == "__main__":
