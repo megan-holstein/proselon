@@ -35,6 +35,12 @@ if (-not (Test-ProselonProject)) {
     exit 1
 }
 
+# Remember the installed version before touching anything, so we can tell
+# afterwards whether this update crossed a version boundary (and the content
+# migrations in .proselon\MIGRATIONS.md may apply).
+$OldVersionFile = Join-Path $Target ".proselon\VERSION"
+$OldVersion = if (Test-Path $OldVersionFile) { (Get-Content $OldVersionFile -Raw).Trim() } else { "unknown" }
+
 $Tmp = Join-Path ([System.IO.Path]::GetTempPath()) ("proselon-update-" + [System.Guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $Tmp | Out-Null
 
@@ -89,6 +95,24 @@ try {
     $VersionFile = Join-Path $Target ".proselon\VERSION"
     $Version = if (Test-Path $VersionFile) { (Get-Content $VersionFile -Raw).Trim() } else { "latest" }
     Write-Host "Proselon updated to $Version."
+
+    # The refresh above replaced framework files only -- author content is
+    # never touched. But an update can change the *shape* the framework
+    # expects (where the workflow looks for project files). Those moves need
+    # judgment, so they are done by the agent, not this script: hand it the
+    # migration ledger and the version boundary it just crossed.
+    if (($OldVersion -ne $Version) -and (Test-Path (Join-Path $Target ".proselon\MIGRATIONS.md"))) {
+        Write-Host ""
+        Write-Host "== CONTENT MIGRATION =="
+        Write-Host "This project was on version: $OldVersion (now: $Version)."
+        Write-Host "If you are the AI assistant running this update: read .proselon\MIGRATIONS.md"
+        Write-Host "now and apply every migration entry newer than $OldVersion. Move the author"
+        Write-Host "files those entries name from their old locations to the new canonical ones --"
+        Write-Host "moves only, never edit a document's contents -- then report what moved. If no"
+        Write-Host "entry applies, say so and move on."
+        Write-Host "If you are a human running this by hand: open your Proselon session and say"
+        Write-Host "'finish the Proselon update' so your assistant completes this step."
+    }
 }
 finally {
     Remove-Item -Recurse -Force -ErrorAction SilentlyContinue $Tmp

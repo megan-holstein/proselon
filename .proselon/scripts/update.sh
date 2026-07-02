@@ -36,6 +36,11 @@ if ! is_proselon_project; then
     exit 1
 fi
 
+# Remember the installed version before touching anything, so we can tell
+# afterwards whether this update crossed a version boundary (and the content
+# migrations in .proselon/MIGRATIONS.md may apply).
+OLD_VERSION="$(cat "$TARGET/.proselon/VERSION" 2>/dev/null || echo "unknown")"
+
 command -v curl >/dev/null 2>&1 || { echo "Error: curl is required." >&2; exit 1; }
 command -v tar  >/dev/null 2>&1 || { echo "Error: tar is required." >&2; exit 1; }
 
@@ -86,3 +91,23 @@ printf '@AGENTS.md\n' > "$TARGET/CLAUDE.md"
 
 VERSION="$(cat "$TARGET/.proselon/VERSION" 2>/dev/null || echo "latest")"
 echo "Proselon updated to $VERSION."
+
+# The refresh above replaced framework files only -- author content is never
+# touched. But an update can change the *shape* the framework expects (where
+# the workflow looks for project files). Those moves need judgment, so they
+# are done by the agent, not this script: hand it the migration ledger and
+# the version boundary it just crossed.
+if [ "$OLD_VERSION" != "$VERSION" ] && [ -f "$TARGET/.proselon/MIGRATIONS.md" ]; then
+    cat <<EOF
+
+== CONTENT MIGRATION ==
+This project was on version: $OLD_VERSION (now: $VERSION).
+If you are the AI assistant running this update: read .proselon/MIGRATIONS.md
+now and apply every migration entry newer than $OLD_VERSION. Move the author
+files those entries name from their old locations to the new canonical ones --
+moves only, never edit a document's contents -- then report what moved. If no
+entry applies, say so and move on.
+If you are a human running this by hand: open your Proselon session and say
+"finish the Proselon update" so your assistant completes this step.
+EOF
+fi
