@@ -232,11 +232,26 @@ For every step, the loop is the same:
 
 1. Load the step's context (see its **Context to load** entry).
 2. Interview the author or work from what they've given you, matching their mode (see **Working with the Author**).
-3. Fill the matching template — concise, structured, easy for future-you to read; thematic material in dedicated sections, unresolved decisions under `Open Questions`. Keep the template's OKF frontmatter (fill in `title` and `description`) and link the characters, locations, and factions the document names to their `Worldbuilding/` files inline.
+3. Fill the matching template — for the series plot, theme slate, book plot, and chapter map, via **Candidate Generation** below rather than a single draft — concise, structured, easy for future-you to read; thematic material in dedicated sections, unresolved decisions under `Open Questions`. Keep the template's OKF frontmatter (fill in `title` and `description`) and link the characters, locations, and factions the document names to their `Worldbuilding/` files inline.
 4. Hand the artifact to an independent **Assessor** to run the matching rubric — never grade your own draft (see **The Writer↔Assessor Loop**). Apply the findings it returns.
 5. Save the file at its canonical location.
 
 The save *is* the gate. Save only once the artifact is sound — and, in collaborative or detailed mode, once the author agrees.
+
+### Candidate Generation for Planning Artifacts
+
+The series plot (2.1), theme slate (3.1), book plot (5.1), and chapter map (5.4) are the highest-leverage creative decisions in the project, and generation has high variance: single-shot production takes one sample, and revision-against-findings can only explore that sample's neighborhood. A rubric can reject a mediocre plot; it cannot surface the better plot that was never generated. So for these four artifacts:
+
+1. **Generate 3–5 candidates in independent fresh contexts**, each briefed to be structurally different — force the divergence in the briefs rather than hoping for it (each template's Candidate Generation section names the axes for that artifact; always include one candidate that inverts the genre-default move). Candidates share the same upstream canon and author-confirmed decisions: divergence explores what the author left *open*, never what they settled.
+2. **Judge.** A fresh craft context ranks the candidates against the premise, specs, and upstream canon — and answers one further question per runner-up: *what does this candidate do better than the winner?* In collaborative mode, present the top candidates to the author instead — three skeletons are a better creative conversation than one draft.
+3. **Synthesize.** The Writer takes the winning skeleton and grafts on the named strengths of the runners-up. Graft onto one structure; never average two structures.
+4. The synthesized artifact enters the normal rubric loop as round one.
+
+In autopilot mode this protocol is mandatory — the candidates substitute for the creative divergence the author interview would otherwise provide. Interview first, candidates second, always.
+
+### Panel Assessment for Planning Gates
+
+The series plot (2.2), book plot (5.2), and chapter map (5.6) rubrics run as a **panel of three independent Assessors** in parallel — separate fresh contexts, different strong models where available, each running the rubric alone and unaware of the others. Judgment on "is this fresh? does the middle sag?" has real variance, and a single judge's approval of a borderline plot is a coin flip locked in for the whole book. Union the findings (deduplicate matches); the Writer addresses the union. Verdict: any panelist's Needs revision on a structural or freshness criterion means Needs revision. To decorrelate further, give the panelists distinct stances: one runs the rubric plainly, one as the genre's ideal reader, one as a hostile critic. Lower-blast-radius rubrics (5.7, 5.9, 3.2, 4.3) stay single-assessor by default; escalate any of them to a panel when the artifact is load-bearing and the single verdict feels borderline.
 
 ## The Writer↔Assessor Loop
 
@@ -369,11 +384,12 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 
 ### Session Architecture
 
-- Draft (6.1) in one session for momentum and continuity.
+- Draft (6.1) as **2–3 independent candidates** in separate fresh contexts — different strong models where available — with a blind craft judge picking the strongest dramatization (see 6.1 › Candidate Drafting). Each candidate is drafted in one continuous context for momentum; pick, never merge.
 - Run every assessment and pass (6.2–6.7) in a fresh-context subagent loading its doc plus exactly the files that doc's context section ("Before You Start" / "Context to Load") names — nothing more. An independent context catches the drafter's blind spots; it can't be anchored by the drafting session's choices or hold stale superseded versions of the scene.
+- The **Line Assessment (6.4) runs as a filtered ensemble** — 2–3 independent assessors in parallel, findings filtered by agreement (or script corroboration) before the Writer sees them; see the pass doc's Ensemble section. An unfiltered union drives over-revision.
 - The craft assessments (6.2, Cold Read, 6.4) return findings; the **Writer** applies them — ideally in a fresh craft context rather than the original drafting context, so the same tics aren't reintroduced — then the Assessor re-checks.
 - The **Cold Read** runs parallel to 6.2 in a context that loads only the previous scene(s) and the current scene — no scene plot, no style files. Brief that subagent with the manuscript files alone; handing it any plan document destroys the instrument.
-- Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns. For the first ~3 scenes of a book, 6.3 produces **two candidates** and the author picks as part of voice sign-off (see the pass doc's Candidate Selection); after sign-off, single-rewrite is the default unless the author opts into two-candidate mode.
+- Run the Voice Rewrite (6.3) with a *different model* than the drafter when available — different models have different default tics, and decorrelating the two breaks shared patterns. For the first ~3 scenes of a book, 6.3 produces **two candidates** and the author picks as part of voice sign-off (see the pass doc's Candidate Selection); after sign-off, **2–3 candidates remain the default for every scene**, judged blind on two axes — corpus fidelity and aliveness — with the more alive candidate preferred when the axes disagree.
 - **Chapter read, once per chapter.** When a chapter's final scene completes (through Proof and Ledger), run the Cold Read at chapter scope — the assembled chapter in reading order, plus the previous chapter's last scene. Nothing else ever reads the scenes in sequence as flow; this is where choppy seams, sag, and scene-sameness surface. Route findings like Line Assessment findings for the scenes named; surface structural ones to the author.
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
