@@ -39,7 +39,7 @@ The plot cascade at three scopes; each level is a produce→assess loop (templat
 - [Chapter Map Assessment](<5 - Plotting/5.6 - Chapter Map Assessment.md>) — *Rubric · craft*
 - [Chapter Plot Assessment](<5 - Plotting/5.7 - Chapter Plot Assessment.md>) — *Rubric · craft*
 - [Scene Plot Template](<5 - Plotting/5.8 - Scene Plot Template.md>) — *Template*
-- [Scene Plots Assessment](<5 - Plotting/5.9 - Scene Plot Assessment.md>) — *Rubric · craft*
+- [Scene Plot Assessment](<5 - Plotting/5.9 - Scene Plot Assessment.md>) — *Rubric · craft*
 
 ### 6 — Drafting and Editing · per scene
 A Writer↔Assessor loop: the Writer generates (6.1, 6.3), an independent Assessor returns findings (6.2, 6.4), then mechanical verification (6.5–6.7).
@@ -57,3 +57,8 @@ A Writer↔Assessor loop: the Writer generates (6.1, 6.3), an independent Assess
 - [Ebook Cover](<7 - Publishing/7.3 - Ebook Cover.md>) — *Procedure · craft*
 - [Print Cover](<7 - Publishing/7.3 - Print Cover.md>) — *Reference*
 - [Ebook Formatting](<7 - Publishing/7.4 - Ebook Formatting.md>) — *Reference*
+
+## Cross-Step References
+
+- [AI Prose Tendencies](<AI Prose Tendencies.md>) — *Reference*. The canonical AI-tell catalog and density thresholds; seeds the Style Guide's Red Flag List, loaded condensed by the First Draft (6.1) and in full by the Line Assessment (6.4).
+- [OKF Conventions](<OKF Conventions.md>) — *Reference*. Frontmatter and cross-linking conventions for knowledge files.

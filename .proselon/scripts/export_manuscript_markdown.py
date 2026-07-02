@@ -9,76 +9,51 @@ Arguments:
     book_title:   Title for the H1 heading and output filename (e.g. "Signal Override")
 """
 
-import re
 import sys
 from pathlib import Path
 
-
-def natural_sort_key(path):
-    """Sort by embedded numbers so Chapter 2 comes before Chapter 10."""
-    return [
-        int(part) if part.isdigit() else part.lower()
-        for part in re.split(r"(\d+)", path.name)
-    ]
-
-
-def chapter_heading(dir_name):
-    """Heading for a chapter folder.
-
-    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
-    "Chapter 3" -> "Chapter 3".
-    """
-    if " - " in dir_name:
-        return dir_name.split(" - ", 1)[1].strip()
-    num = re.search(r"\d+", dir_name)
-    return f"Chapter {num.group()}" if num else dir_name
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _manuscript import (
+    chapter_heading,
+    count_words,
+    export_output_path,
+    find_book_dir,
+    find_chapter_dirs,
+    find_scene_files,
+    read_scene,
+)
 
 
 def export(book_folder, book_title):
-    project_root = Path(__file__).resolve().parent.parent.parent
-    manuscripts_dir = project_root / "Manuscripts" / book_folder
-
-    if not manuscripts_dir.is_dir():
-        print(f"Error: {manuscripts_dir} not found.", file=sys.stderr)
-        sys.exit(1)
-
-    chapter_dirs = sorted(
-        [d for d in manuscripts_dir.iterdir() if d.is_dir() and "Chapter" in d.name],
-        key=natural_sort_key,
-    )
-
-    if not chapter_dirs:
-        print(f"Error: No chapter folders found in {manuscripts_dir}.", file=sys.stderr)
-        sys.exit(1)
+    manuscripts_dir = find_book_dir(book_folder)
+    chapter_dirs = find_chapter_dirs(manuscripts_dir)
 
     lines = [f"# {book_title}\n"]
     total_scenes = 0
+    total_words = 0
 
     for chapter_dir in chapter_dirs:
         lines.append(f"\n## {chapter_heading(chapter_dir.name)}\n\n")
 
-        scene_files = sorted(
-            [f for f in chapter_dir.iterdir() if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],
-            key=natural_sort_key,
-        )
+        scene_files = find_scene_files(chapter_dir)
 
         for i, scene_file in enumerate(scene_files):
-            content = scene_file.read_text(encoding="utf-8").strip()
+            content = read_scene(scene_file)
             lines.append(content)
             lines.append("\n")
             total_scenes += 1
+            total_words += count_words(content)
 
             if i < len(scene_files) - 1:
                 lines.append("\n---\n\n")
 
     output = "".join(lines).rstrip("\n") + "\n"
-    output_path = manuscripts_dir.parent / f"{book_folder} - {book_title}.md"
+    output_path = export_output_path(manuscripts_dir, book_folder, book_title, ".md")
     output_path.write_text(output, encoding="utf-8")
 
-    word_count = len(output.split())
     print(f"Exported: {output_path.name}")
     print(f"Chapters: {len(chapter_dirs)}, Scenes: {total_scenes}")
-    print(f"Words: {word_count:,}")
+    print(f"Words: {total_words:,}")
 
 
 if __name__ == "__main__":

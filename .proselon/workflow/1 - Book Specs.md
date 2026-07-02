@@ -25,45 +25,17 @@ If web search is unavailable, say so, tag all market claims `(unverified)`, and 
 
 ## Phase 1 — KDP Category Research
 
-Search the KDP store (via web search) to identify the 3 most appropriate browse categories for the book's premise.
-
-For each candidate category, document:
-
-- **Category path** (full browse path, e.g., Kindle Store > Kindle eBooks > Science Fiction & Fantasy > Science Fiction > Hard Science Fiction)
-- **Why it fits** this project's premise
-- **What readers in that category expect** (themes, tone, pacing, content type)
-- **Representative titles** (3–5 current bestsellers or strong performers in the category)
+Search the KDP store (via web search) to identify the 3 most appropriate browse categories for the book's premise. For each candidate, confirm the full browse path exists, establish why it fits this premise, learn what readers browsing it expect, and collect representative bestsellers. The Output Template's KDP Category Analysis block is the field inventory — capture what it asks for, per category.
 
 Talk through the candidates with the author and settle on the final 3. This consultation happens in every mode, including autopilot — category selection is a creative decision, never made alone.
 
 ## Phase 2 — Comp Title Analysis
 
-Within the selected categories, identify 3–5 comparable titles. Comps should share similar premise, audience, or market positioning with this project.
-
-For each comp, document:
-
-- **Title and author**
-- **Word count** (approximate)
-- **Chapter structure** (chapter count, average chapter length, scene structure if known)
-- **Prose style characterization** (register, sentence style, POV, tense)
-- **Reader reception patterns** (common praise and complaints from reviews)
-- **Cover style** (imagery, color palette, typography, layout — what the cover signals to browsers)
-- **What specifically makes it comparable** to this project
+Within the selected categories, identify 3–5 comparable titles — books sharing this project's premise, audience, or market positioning. Study each comp's length, structure, prose style, review reception, and cover. The Output Template's Comp Title Analysis block is the field inventory — capture what it asks for, per comp.
 
 ## Phase 3 — Genre Convention Research
 
-Using the categories and comps from Phases 1–2, research and document conventions for the genre and market position:
-
-- **Total word count range** for the genre/category
-- **Chapter count and length** norms
-- **Scene structure** (scenes per chapter, scene length norms)
-- **POV and tense** norms (what's standard, what's acceptable, what's unusual)
-- **Prose style expectations** (register, sentence complexity, description density)
-- **Pacing patterns** (where hooks land, act structure norms, chapter-end expectations)
-- **Required genre beats and tropes** (what readers expect to see)
-- **Reader expectations and dealbreakers** (what will satisfy or alienate the target audience)
-- **Tone and atmosphere norms** (range of acceptable tones for the category)
-- **Book cover conventions** (dominant imagery, color palettes, typography styles, layout patterns, what signals genre to browsers on KDP)
+Using the categories and comps from Phases 1–2, research the conventions for this genre and market position: structure (word count, chapter and scene norms), POV and tense, prose style, pacing, required beats and tropes, reader expectations and dealbreakers, tone, and cover design. The Output Template's convention sections — Structural Conventions through Book Cover Conventions — are the field inventory; research what each asks for.
 
 ## Phase 4 — Compile and Save Specifications
 
@@ -95,38 +67,27 @@ Use this template when compiling findings in Phase 4. Fill every section with ge
   1. [Full browse path] — [why it fits]
   2. [Full browse path] — [why it fits]
   3. [Full browse path] — [why it fits]
-- **Comp titles**:
+- **Comp titles** (3–5):
   1. [Title] by [Author] — [what's comparable]
   2. [Title] by [Author] — [what's comparable]
   3. [Title] by [Author] — [what's comparable]
+  4. [optional — include the 4th/5th comp if identified]
 - **Target audience**: [description of ideal reader]
 
 ## KDP Category Analysis
 
-### Category 1: [Category Name]
+### Category N: [Category Name]
 
 - **Browse path**: [full path]
 - **Reader expectations**: [what readers browsing this category are looking for]
 - **Representative bestsellers**: [3–5 titles]
 - **Why this book fits**: [rationale]
 
-### Category 2: [Category Name]
-
-- **Browse path**: [full path]
-- **Reader expectations**: [what readers browsing this category are looking for]
-- **Representative bestsellers**: [3–5 titles]
-- **Why this book fits**: [rationale]
-
-### Category 3: [Category Name]
-
-- **Browse path**: [full path]
-- **Reader expectations**: [what readers browsing this category are looking for]
-- **Representative bestsellers**: [3–5 titles]
-- **Why this book fits**: [rationale]
+[Repeat this block for each of the 3 categories.]
 
 ## Comp Title Analysis
 
-### [Title 1] by [Author]
+### [Title] by [Author]
 
 - **Word count**: [approximate]
 - **Structure**: [chapter count, chapter length, scene structure]
@@ -135,13 +96,7 @@ Use this template when compiling findings in Phase 4. Fill every section with ge
 - **Cover style**: [imagery, color palette, typography, layout]
 - **What's comparable**: [specific connection to this project]
 
-### [Title 2] by [Author]
-
-[same fields]
-
-### [Title 3] by [Author]
-
-[same fields]
+[Repeat this block for each comp (3–5).]
 
 ## Structural Conventions
 
@@ -183,9 +138,14 @@ Use this template when compiling findings in Phase 4. Fill every section with ge
 - **Dealbreakers to avoid**: [things that will alienate genre readers]
 - **Optional elements that perform well**: [not required but well-received]
 
-## Reader Promise Conventions
+## Reader Promises
 
 [What readers of this genre/category are implicitly promised when they pick up the book. What the cover, blurb, and category placement signal about the reading experience.]
+
+**Series promises** — the specific promises *this* project makes its readers, stated as commitments the story must pay off (the Series Plot assessment tracks each one to a delivery point):
+
+- [Promise]
+- [Promise]
 
 ## Tone and Atmosphere
 
@@ -228,6 +188,7 @@ Before marking this procedure complete, verify:
 - [ ] At least 3 comp titles analyzed
 - [ ] All structural convention sections populated with genre norms AND project-specific recommendations
 - [ ] Genre norms clearly separated from project recommendations
+- [ ] Series promises listed as explicit, payable commitments
 - [ ] Author deviations from convention explicitly noted with rationale
 - [ ] Book cover conventions documented with genre norms and project recommendation
 - [ ] Cover generation prompt included

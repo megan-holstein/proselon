@@ -8,61 +8,23 @@ Arguments:
     book_folder:  Name of the folder under Manuscripts/ (e.g. "Book 1")
 """
 
-import re
 import sys
 from pathlib import Path
 
-
-def natural_sort_key(path):
-    """Sort by embedded numbers so Chapter 2 comes before Chapter 10."""
-    return [
-        int(part) if part.isdigit() else part.lower()
-        for part in re.split(r"(\d+)", path.name)
-    ]
-
-
-def chapter_heading(dir_name):
-    """Heading for a chapter folder.
-
-    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
-    "Chapter 3" -> "Chapter 3".
-    """
-    if " - " in dir_name:
-        return dir_name.split(" - ", 1)[1].strip()
-    num = re.search(r"\d+", dir_name)
-    return f"Chapter {num.group()}" if num else dir_name
-
-
-def strip_front_matter(text):
-    """Remove YAML front matter if present."""
-    if text.startswith("---"):
-        end = text.find("---", 3)
-        if end != -1:
-            text = text[end + 3:].lstrip("\n")
-    return text
-
-
-def count_words(text):
-    """Count words in a string."""
-    return len(text.split())
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _manuscript import (
+    chapter_heading,
+    count_words,
+    find_book_dir,
+    find_chapter_dirs,
+    find_scene_files,
+    read_scene,
+)
 
 
 def word_count(book_folder):
-    project_root = Path(__file__).resolve().parent.parent.parent
-    manuscripts_dir = project_root / "Manuscripts" / book_folder
-
-    if not manuscripts_dir.is_dir():
-        print(f"Error: {manuscripts_dir} not found.", file=sys.stderr)
-        sys.exit(1)
-
-    chapter_dirs = sorted(
-        [d for d in manuscripts_dir.iterdir() if d.is_dir() and "Chapter" in d.name],
-        key=natural_sort_key,
-    )
-
-    if not chapter_dirs:
-        print(f"Error: No chapter folders found in {manuscripts_dir}.", file=sys.stderr)
-        sys.exit(1)
+    manuscripts_dir = find_book_dir(book_folder)
+    chapter_dirs = find_chapter_dirs(manuscripts_dir)
 
     total_words = 0
     chapter_counts = []
@@ -70,15 +32,11 @@ def word_count(book_folder):
     for chapter_dir in chapter_dirs:
         chapter_label = chapter_heading(chapter_dir.name)
 
-        scene_files = sorted(
-            [f for f in chapter_dir.iterdir() if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],
-            key=natural_sort_key,
-        )
+        scene_files = find_scene_files(chapter_dir)
 
         chapter_words = 0
         for scene_file in scene_files:
-            content = strip_front_matter(scene_file.read_text(encoding="utf-8")).strip()
-            chapter_words += count_words(content)
+            chapter_words += count_words(read_scene(scene_file))
 
         chapter_counts.append((chapter_label, chapter_words, len(scene_files)))
         total_words += chapter_words

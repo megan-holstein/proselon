@@ -321,8 +321,11 @@ window.addEventListener("resize", ()=>{W=window.innerWidth;H=window.innerHeight;
 
 
 def render_html(graph, title, subtitle):
+    # Escape "</" so a description containing "</script>" can't terminate the
+    # inline <script> block ("<\/" is a valid JSON string escape for "</").
+    data = json.dumps(graph).replace("</", "<\\/")
     return (HTML_TEMPLATE
-            .replace("__DATA__", json.dumps(graph))
+            .replace("__DATA__", data)
             .replace("__TITLE__", title)
             .replace("__SUBTITLE__", subtitle))
 

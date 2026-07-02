@@ -10,12 +10,23 @@ Arguments:
     author:       Optional author or pen name for the title page and metadata
 
 Dependencies:
-    pip3 install python-docx
+    python3 -m pip install --user python-docx
 """
 
-import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _manuscript import (
+    chapter_heading,
+    count_words,
+    export_output_path,
+    find_book_dir,
+    find_chapter_dirs,
+    find_scene_files,
+    parse_inline,
+    read_scene,
+)
 
 try:
     from docx import Document
@@ -24,7 +35,9 @@ try:
 except ImportError:
     print(
         "Error: the python-docx library is not installed.\n"
-        "Install it with:  pip3 install python-docx",
+        "Install it with:  python3 -m pip install --user python-docx\n"
+        "If installing is a hassle, ask the agent for an HTML export instead —\n"
+        "it opens directly in Word or Pages and saves normally.",
         file=sys.stderr,
     )
     sys.exit(1)
@@ -36,60 +49,35 @@ except ImportError:
 
 FONT_NAME = "Georgia"
 BODY_FONT_SIZE = Pt(11)
+CHAPTER_HEADING_SIZE = Pt(16)   # level-1 headings (chapter titles)
+SUB_HEADING_SIZE = Pt(13)       # level-2 headings inside scenes
+HEADING_COLOR = RGBColor(0, 0, 0)  # override Word's default blue heading style
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
-def natural_sort_key(path):
-    """Sort by embedded numbers so Chapter 2 comes before Chapter 10."""
-    return [
-        int(part) if part.isdigit() else part.lower()
-        for part in re.split(r"(\d+)", path.name)
-    ]
-
-
-def chapter_heading(dir_name):
-    """Heading for a chapter folder.
-
-    "Chapter 0 - Prologue" -> "Prologue", "Chapter 13 - Epilogue" -> "Epilogue",
-    "Chapter 3" -> "Chapter 3".
-    """
-    if " - " in dir_name:
-        return dir_name.split(" - ", 1)[1].strip()
-    num = re.search(r"\d+", dir_name)
-    return f"Chapter {num.group()}" if num else dir_name
+def style_heading(paragraph, size):
+    """Give a heading the manuscript font, size, and plain black color."""
+    for run in paragraph.runs:
+        run.font.name = FONT_NAME
+        run.font.size = size
+        run.font.color.rgb = HEADING_COLOR
 
 
 def add_formatted_text(paragraph, text):
-    """Parse markdown inline formatting (**bold**, *italic*) into Word runs."""
-    pattern = re.compile(r"(\*{3}(.+?)\*{3}|\*{2}(.+?)\*{2}|\*(.+?)\*)")
+    """Parse markdown inline formatting (**bold**, *italic*) into Word runs.
 
-    last_end = 0
-    for match in pattern.finditer(text):
-        if match.start() > last_end:
-            run = paragraph.add_run(text[last_end:match.start()])
-            run.font.name = FONT_NAME
-            run.font.size = BODY_FONT_SIZE
-
-        if match.group(2):       # ***bold italic***
-            run = paragraph.add_run(match.group(2))
+    Emphasis parsing is shared with the EPUB exporter via
+    _manuscript.parse_inline — fix emphasis bugs there, once, for both.
+    """
+    for run_text, bold, italic in parse_inline(text):
+        run = paragraph.add_run(run_text)
+        if bold:
             run.bold = True
+        if italic:
             run.italic = True
-        elif match.group(3):     # **bold**
-            run = paragraph.add_run(match.group(3))
-            run.bold = True
-        elif match.group(4):     # *italic*
-            run = paragraph.add_run(match.group(4))
-            run.italic = True
-
-        run.font.name = FONT_NAME
-        run.font.size = BODY_FONT_SIZE
-        last_end = match.end()
-
-    if last_end < len(text):
-        run = paragraph.add_run(text[last_end:])
         run.font.name = FONT_NAME
         run.font.size = BODY_FONT_SIZE
 
@@ -98,7 +86,7 @@ def add_scene_break(doc):
     """Insert a centred bullet scene-break separator."""
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("\u2022  \u2022  \u2022")
+    run = p.add_run("•  •  •")
     run.font.name = FONT_NAME
     run.font.size = BODY_FONT_SIZE
     run.font.color.rgb = RGBColor(0x66, 0x66, 0x66)
@@ -113,12 +101,10 @@ def add_markdown_block(doc, md_text):
 
         if stripped.startswith("## "):
             p = doc.add_heading(stripped[3:], level=2)
-            for run in p.runs:
-                run.font.name = FONT_NAME
+            style_heading(p, SUB_HEADING_SIZE)
         elif stripped.startswith("# "):
             p = doc.add_heading(stripped[2:], level=1)
-            for run in p.runs:
-                run.font.name = FONT_NAME
+            style_heading(p, CHAPTER_HEADING_SIZE)
         elif stripped.startswith("- "):
             p = doc.add_paragraph(style="List Bullet")
             add_formatted_text(p, stripped[2:])
@@ -134,21 +120,8 @@ def add_markdown_block(doc, md_text):
 # ---------------------------------------------------------------------------
 
 def export(book_folder, book_title, author=None):
-    project_root = Path(__file__).resolve().parent.parent.parent
-    manuscripts_dir = project_root / "Manuscripts" / book_folder
-
-    if not manuscripts_dir.is_dir():
-        print("Error: %s not found." % manuscripts_dir, file=sys.stderr)
-        sys.exit(1)
-
-    # --- Discover chapters ------------------------------------------------
-    chapter_dirs = sorted(
-        [d for d in manuscripts_dir.iterdir() if d.is_dir() and "Chapter" in d.name],
-        key=natural_sort_key,
-    )
-    if not chapter_dirs:
-        print("Error: No chapter folders found in %s." % manuscripts_dir, file=sys.stderr)
-        sys.exit(1)
+    manuscripts_dir = find_book_dir(book_folder)
+    chapter_dirs = find_chapter_dirs(manuscripts_dir)
 
     # --- Create document --------------------------------------------------
     doc = Document()
@@ -191,23 +164,20 @@ def export(book_folder, book_title, author=None):
 
     # --- Manuscript chapters ----------------------------------------------
     total_scenes = 0
+    total_words = 0
 
     for chapter_dir in chapter_dirs:
-        scene_files = sorted(
-            [f for f in chapter_dir.iterdir()
-             if f.is_file() and f.suffix == ".md" and f.name.startswith("S")],
-            key=natural_sort_key,
-        )
+        scene_files = find_scene_files(chapter_dir)
 
         h = doc.add_heading(chapter_heading(chapter_dir.name), level=1)
         h.alignment = WD_ALIGN_PARAGRAPH.CENTER
-        for run in h.runs:
-            run.font.name = FONT_NAME
+        style_heading(h, CHAPTER_HEADING_SIZE)
 
         for i, scene_file in enumerate(scene_files):
-            content = scene_file.read_text(encoding="utf-8").strip()
+            content = read_scene(scene_file)
             add_markdown_block(doc, content)
             total_scenes += 1
+            total_words += count_words(content)
 
             if i < len(scene_files) - 1:
                 add_scene_break(doc)
@@ -215,11 +185,12 @@ def export(book_folder, book_title, author=None):
         doc.add_page_break()
 
     # --- Write output -----------------------------------------------------
-    output_path = manuscripts_dir.parent / (book_folder + " - " + book_title + ".docx")
+    output_path = export_output_path(manuscripts_dir, book_folder, book_title, ".docx")
     doc.save(str(output_path))
 
     print("Exported: " + output_path.name)
     print("Chapters: %d, Scenes: %d" % (len(chapter_dirs), total_scenes))
+    print("Words: {:,}".format(total_words))
     size_kb = output_path.stat().st_size / 1024
     print("Size: %.0f KB" % size_kb)
 

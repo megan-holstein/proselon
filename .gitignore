@@ -20,3 +20,6 @@ DESIGN NOTES.md
 # Generated OKF graph view (regenerated on demand by .proselon/scripts/visualize_story_graph.py)
 Story Graph.html
 Proselon Framework Graph.html
+
+# Release zips built by .proselon/scripts/build_release.sh
+dist/
