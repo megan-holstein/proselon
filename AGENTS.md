@@ -85,18 +85,21 @@ The order is *yours*, not a contract for the author. They can hand you material 
 **Output:** `Plot/Specs.md`
 **Gate:** `Plot/Specs.md` exists.
 
-Research KDP categories, comp titles, and genre conventions; compile findings into a specs document. Category selection is a creative decision — settle the final 3 with the author, don't pick alone.
+Research KDP categories, comp titles, and genre conventions; compile findings into a specs document. Category selection is a creative decision — settle the final 3 with the author, don't pick alone. The step ends with a **Premise Assessment** (a fresh context judges hook strength, differentiation per comp, dealbreaker exposure, and saturation position against the completed Specs) — a Needs-sharpening verdict is settled with the author, in every mode, before Step 2 commits the cascade to the premise.
 
 ### Step 2: Series Plot
 
-**Scope:** Once per project
+**Scope:** Once per project, then refreshed between books
 **Template:** `.proselon/workflow/2 - Series Plot/2.1 - Template.md`
 **Rubric:** `.proselon/workflow/2 - Series Plot/2.2 - Assessment.md`
+**Refresh:** `.proselon/workflow/2 - Series Plot/2.3 - Series Refresh.md`
 **Context to load:** Existing premise, character profiles, worldbuilding files
 **Output:** `Plot/Series Plot.md`
 **Gate:** `Plot/Series Plot.md` exists.
 
 Establish the whole-project plot: premise, arc, major movements, threads across books. Every later step depends on this canon.
+
+**Between books, the series plot is refreshed, not trusted.** After Book N ships (through its Whole-Book Read) and before Book N+1 plotting begins, run the **Series Refresh** (2.3): reconcile the series plot with the book that actually got written, elevate Book N+1's section to a full Plot Summary, and re-run 2.2 — whose Read-through hook and Middle-book function criteria bite only here. Planning Book N+1 against the pre-Book-1 series document is how book-2 slump happens.
 
 ### Step 3: Themes and Conflict
 
@@ -185,7 +188,7 @@ Turn a scene plot into finished prose. This is a **Writer↔Assessor loop** (see
 | 6.7 | Proofread — mechanical | `6.7 - Proofread.md` |
 | 6.8 | Whole-Book Read — **Reader panel + book Assessor** (per book, not per scene) | `6.8 - Whole-Book Read.md` |
 
-The order is deliberate: the developmental stage (6.2 plus the Cold Read) gates the Voice Rewrite (6.3), so the generative re-voicing never lands on prose about to be restructured — structure → voice → line → mechanical. The **Cold Read** runs in parallel with 6.2 in its own fresh context with *no* plan documents — it reports the reading experience (attention, confusion, prediction, feeling, the page-turn) rather than checking intentions, catching the failure rubrics can't: a scene that passes every check and is still dull. The craft assessments (6.2, Cold Read, 6.4) are **findings-only**: the Assessor reports, the Writer applies. The three mechanical passes (6.5–6.7) are single independent passes that verify-and-fix against explicit criteria. The Production table's Dev cell covers the developmental stage as a whole — mark it only when both 6.2 and the Cold Read have cleared.
+The order is deliberate: the developmental stage (6.2 plus the Cold Read) gates the Voice Rewrite (6.3), so the generative re-voicing never lands on prose about to be restructured — structure → voice → line → mechanical. The **Cold Read** runs in parallel with 6.2 as a three-persona panel in fresh contexts with *no* plan documents — it reports the reading experience (attention, confusion, prediction, feeling, the page-turn) rather than checking intentions, catching the failure rubrics can't: a scene that passes every check and is still dull. The craft assessments (6.2, Cold Read, 6.4) are **findings-only**: the Assessor reports, the Writer applies. The three verify-and-fix passes (6.5–6.7) are single independent passes against explicit criteria — "mechanical" in protocol, craft-tier in model. The Production table's Dev cell covers the developmental stage as a whole — mark it only when both 6.2 and the Cold Read have cleared.
 
 **Gate (per scene):** The scene's Production row is marked through Proof and Ledger.
 
@@ -327,7 +330,7 @@ To find the next step, check gate files in order for the lowest incomplete one:
 2. `Plot/Series Plot.md` — if missing, Step 2.
 3. `Plot/Themes and Conflict.md` — if missing, Step 3.
 4. `Style/Style Guide.md` and `Style/Voice Reference.md` — if either missing, Step 4.
-5. `Plot/Book N/Book N Plot.md` and `Plot/Book N/Story State.md` for the next unstarted book — if either missing, Step 5. If the book plot exists but the ledger is missing, initialize it from the 5.3 template: seed from starting conditions, backfill from completed scenes.
+5. `Plot/Book N/Book N Plot.md` and `Plot/Book N/Story State.md` for the next unstarted book — if either missing, Step 5. For Book 2 onward, first confirm the Series Refresh (2.3) ran against the shipped previous book — a series plot never reconciled with the previous book's reality makes the next book plot premature. If the book plot exists but the ledger is missing, initialize it from the 5.3 template: seed from starting conditions, backfill from completed scenes.
 6. `Plot/Book N/Book N Chapter Map.md` and per-chapter `Chapter N Plot.md` for the current book — if any missing, Step 5 (chapter level).
 7. Scene plots (`Plot/Book N/Chapters/Chapter N/S# - Scene Name.md`) for chapters with chapter plots — if any chapter lacks them, Step 5 (scene level) for that chapter.
 
@@ -406,10 +409,12 @@ Make story-development documents easy for future agents to use. Prefer clear hea
 - **Whole-book read, once per book.** When the final chapter completes, run 6.8 — the Reader panel over the entire manuscript plus the book-scope developmental assessment — before any Step 7 work. Its merged report saves to `Plot/Book N/Whole-Book Read.md` (the Step 7 entry condition).
 - Without subagents, fall back to session separation: assess and revise in a separate session from drafting, and at minimum re-read the style guide and voice reference fresh before the Line Assessment (6.4), as a first-time reader.
 - When the project is a git repository, commit after each sub-pass completes (one line naming the scene and pass, e.g. `B1C3S2: voice rewrite`). This gives the Continuity Check (6.5) a real diff target for its preservation check, makes an interrupted pass recoverable — a half-voiced scene with Voice unmarked would otherwise get the generative 6.3 re-run on partially voiced prose — and records what each pass changed. These are working commits, not "saves"; don't surface them to the author.
-- **Act audit, once per act.** The Line Assessment's 2–3-scene window catches local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run three checks:
+- **Act audit, once per act.** Per-scene windows catch local sameness but not slow drift: every scene can pass against its neighbors while the book's voice random-walks away from the corpus over thirty scenes. When a chapter completes an act (or every ~10 scenes), run five checks:
   - **Voice drift** (craft tier, fresh context): load `Style/Voice Reference.md`, the act's earliest approved scene, and its latest — judge both directly against the Model Passages corpus, not against each other. If the latest has drifted, report it to the author and treat the findings like a Line Assessment for the recent scenes.
   - **Dialogue differentiation** (craft tier, fresh context): extract each major character's dialogue lines across the act (mechanical tier can do the extraction), strip the tags and beats, and have a fresh judge — loading only the Voice Reference's Other Character Voices section and the anonymized line sets — say who's speaking in each set. Characters a blind judge can't tell apart have converged on the narrator's rhythm: report it, and treat the findings like a Line Assessment for the offending characters' recent scenes.
   - **Cross-scene tics** (the script counts; a craft-tier context judges): run `python3 .proselon/scripts/prose_stats.py` across all the act's manuscript scenes at once. Repeated phrases, over-frequent words, and density creep that no per-scene pass can see show up in the aggregate. Recurring offenders go into the Style Guide's Red Flag List (the project tic sheet).
+  - **Structural sameness** (mechanical extraction, craft judgment): have a mechanical-tier context write a one-line structural summary of every scene in the act — opening move, arc shape, closing move, dialogue/action balance — then a fresh craft context scans the list for recurring shapes: opening strategies, arc shapes, and exit moves that cycle across the act. The per-scene windows can't see a rotation of three shapes; the summary list can. Findings route like Developmental findings for the scenes named.
+  - **Image system** (craft tier, fresh context): load the Image System section of `Plot/Themes and Conflict.md` plus the act's scenes. Is each motif recurring, evolving, and earning its appearances — or has it gone stale, vanished, or started landing mechanically on schedule? Mechanical repetition is a tic to flag; organic recurrence needs no note. Report findings to the author when a motif needs replanning.
 
 ### Model Tiers
 

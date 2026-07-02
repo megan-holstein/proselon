@@ -33,6 +33,13 @@ Talk through the candidates with the author and settle on the final 3. This cons
 
 Within the selected categories, identify 3–5 comparable titles — books sharing this project's premise, audience, or market positioning. Study each comp's length, structure, prose style, review reception, and cover. The Output Template's Comp Title Analysis block is the field inventory — capture what it asks for, per comp.
 
+Go deep where the evidence is — this research is cheap relative to everything it steers:
+
+- **Mine the 1–2-star reviews across all comps**, not just general reception. Recurring complaint classes ("insta-love," "the middle dragged," "the twist was obvious," "the villain was dumb") are the genre's real dealbreakers, stated by its own readers. Feed them into Required Genre Elements as explicit dealbreakers.
+- **Read the comps' actual opening pages** (Look Inside / free samples) rather than characterizing prose style from model knowledge — ground the Prose Style fields in retrieved text, per the provenance rules above.
+- **Check category saturation**: scan the current top-20 of each candidate category. Is this premise the fortieth of its kind this year, or underserved? Record it in the category analysis — it feeds the Premise Assessment below.
+- **Record comp series structures**: book counts, whether book 1 stands alone, read-through patterns. This informs the series shape before Step 2 fixes it.
+
 ## Phase 3 — Genre Convention Research
 
 Using the categories and comps from Phases 1–2, research the conventions for this genre and market position: structure (word count, chapter and scene norms), POV and tense, prose style, pacing, required beats and tropes, reader expectations and dealbreakers, tone, and cover design. The Output Template's convention sections — Structural Conventions through Book Cover Conventions — are the field inventory; research what each asks for.
@@ -44,6 +51,17 @@ Fill the output template (below) with all findings from Phases 1–3. This produ
 Clearly separate "genre norm" from "recommendation for this project" in every section. The author may deliberately deviate from convention — deviations should be informed, not accidental.
 
 Save the result as `Plot/Specs.md` (or update it if it already exists). Mode-driven interaction follows `AGENTS.md` — surface judgment calls and departures from genre norm in collaborative or detailed mode; in autopilot, save and report departures concisely after the fact. Category selection was already settled with the author in Phase 1, so no separate sign-off is required here.
+
+## Phase 5 — Premise Assessment
+
+The premise is the one creative object everything downstream inherits, and until now it is also the only one nothing assesses — research thoroughness cannot compensate for a weak one. Once `Plot/Specs.md` is compiled, hand it to a **fresh craft context** (the premise's Assessor), loading only the premise and the completed Specs. Findings-only; it judges:
+
+- **Hook strength** — state the premise as the one-sentence pitch a browser would meet. Would a reader browsing the three chosen categories one-click this over the listed comps? What in that sentence does the pulling — and is there anything?
+- **Differentiation per comp** — for each comp, name what this book offers that the comp doesn't. "The same, but mine" is a finding.
+- **Dealbreaker exposure** — check the premise against the Required Genre Elements dealbreakers, especially the classes mined from 1–2-star reviews. Anything the premise *structurally commits to* that the genre's readers punish gets named now, not at Chapter 20.
+- **Saturation position** — given the category top-20 findings, does this premise enter as a fresh angle or the Nth of its kind?
+
+Verdict: **Strong** (proceed to Step 2) or **Needs sharpening** — never "replace"; the premise is the author's. On Needs sharpening, present the findings with two or three concrete sharpening directions (a stronger angle of attack, a differentiating element, a repositioned category) and settle it with the author before Step 2 commits a hundred thousand words to it. Like category selection, this consultation happens in every mode, including autopilot.
 
 ## Completion Gate
 
@@ -186,6 +204,8 @@ Before marking this procedure complete, verify:
 
 - [ ] Three KDP categories identified with rationale
 - [ ] At least 3 comp titles analyzed
+- [ ] Comp dealbreakers mined from 1–2-star reviews and recorded in Required Genre Elements
+- [ ] Premise Assessment run and its verdict settled with the author
 - [ ] All structural convention sections populated with genre norms AND project-specific recommendations
 - [ ] Genre norms clearly separated from project recommendations
 - [ ] Series promises listed as explicit, payable commitments

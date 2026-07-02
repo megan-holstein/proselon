@@ -16,9 +16,10 @@ Tiers: **craft** = strongest available model; **mechanical** = fast, inexpensive
 ### 1 — Book Specs · once per project
 - [Book Specs](<1 - Book Specs.md>) — *Procedure · craft*. Pre-plot KDP/genre research → `Plot/Specs.md`.
 
-### 2 — Series Plot · once per project
+### 2 — Series Plot · once per project, refreshed between books
 - [Series Plot Template](<2 - Series Plot/2.1 - Template.md>) — *Template*
 - [Series Plot Assessment](<2 - Series Plot/2.2 - Assessment.md>) — *Rubric · craft*
+- [Series Refresh](<2 - Series Plot/2.3 - Series Refresh.md>) — *Procedure · craft* (after each book ships, before the next book's plot)
 
 ### 3 — Themes and Conflict · once per project
 - [Themes and Conflict Template](<3 - Themes and Conflict/3.1 - Template.md>) — *Template*
